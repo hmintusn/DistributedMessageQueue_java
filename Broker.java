@@ -3,17 +3,15 @@ import java.io.BufferedOutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Arrays;
 import java.util.Optional;
 
 public class Broker {
     // Stream: [1 byte of length, 1 byte of type, the rest of byte of message]
-    private Integer brokerPort = 10000;
 
     public void startBrokerServer(){
         try{
             // Socket + bind + Listen
-            final ServerSocket server = new ServerSocket(brokerPort, 123, 
+            final ServerSocket server = new ServerSocket(Constants.BROKER_PORT, 123, 
                 InetAddress.getByName("127.0.0.1")); //backlog 
             System.out.println("Server waiting client...");
             
@@ -44,18 +42,6 @@ public class Broker {
         }
     }
 
-    
-    // public Optional<Message> parseBrokerMessage(byte[] message){
-    //     switch (MessageType.fromByte(message[0])) {
-    //         case ECHO:
-    //             byte[] payload = Arrays.copyOfRange(message, 1, message.length);
-    //             return Optional.of(new Message(MessageType.ECHO, payload));
-                
-    //             default:
-    //                 return Optional.empty();
-    //     }
-    // }
-    
     // Process: message -> message
     public Optional<Message> processBrokerMessage (Message message){
         byte[] response;
@@ -78,9 +64,9 @@ public class Broker {
     }
 
     /*
-        Reverse connection: Broker(client) - Producer(server)
-        - Broker connect to Producer
+        Reverse connection: 
         - Producer register port for Broker to push message
+        - Broker connect to Producer via a dedicated channel (1 thread spawned)
     */
     public byte[] handleProducerRegister (byte[] producerRegistererData){
         // Parse port 
@@ -88,7 +74,7 @@ public class Broker {
         int port = Integer.parseInt(portStr);
         System.out.println("Producer register at port: " + port);
 
-        // Spawn thread 
+        // Spawn a thread (Dedicated channel)
         new Thread(() -> {
             try {
                 Socket socket = new Socket("127.0.0.1", port);
@@ -99,7 +85,7 @@ public class Broker {
 
                 while (true) {
                     Optional<Message> parsedMessage = Message.readMessageFromStream(bis);
-                    if (parsedMessage .isEmpty()) {
+                    if (parsedMessage.isEmpty()) {
                         System.out.println("Parsed message is empty");
                         break; 
                     }

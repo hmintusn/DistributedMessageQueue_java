@@ -6,7 +6,7 @@ public class TCPClient {
     public static void main(String[] args) throws Exception {
         try{
             // socket + connect
-            Socket socket = new Socket("127.0.0.1", 1234);
+            Socket socket = new Socket("127.0.0.1", 10000);
             
             // Write + send to server 
             BufferedInputStream bis = new BufferedInputStream(socket.getInputStream());
@@ -30,11 +30,6 @@ public class TCPClient {
                 System.out.println("Receive from server:" + new String(rcvData));
 
             }
-
-            // bis.close();
-            // bos.close();
-            // sc.close();
-            // socket.close();
         } catch (Exception e) {
             System.out.println("There is problem with server socket");
         }

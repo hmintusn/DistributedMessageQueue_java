@@ -46,7 +46,7 @@ public class Message {
     }
                     
     // [ 6 1 h e l l o]
-    public static byte[] readFromStream(BufferedInputStream bis){
+    private static byte[] readFromStream(BufferedInputStream bis){
         try{
             final int length = bis.read(); 
             if (length <= 0) { // validate data.length
@@ -94,24 +94,9 @@ public class Message {
             e.printStackTrace();
         }
     }
-                    
-                    // public void writeDataToStreamWithType(BufferedOutputStream bos, MessageType type, byte[] data){
-    //     try{
-    //         System.out.println("Send message to stream");
-    //         // Write length = type (1 byte) + payload
-    //         bos.write((byte) (data.length + 1));     
 
-    //         // Write message type
-    //         bos.write(type.getCode());     
-            
-    //         // Write data
-    //         bos.write(data,0, data.length);
-    //         bos.flush();    
-            
-    //     }catch(Exception e){
-    //         System.out.println("Something wrong when writing data to stream with type");
-    //         e.printStackTrace();
-    //     }
-    // }  
-
+    @Override
+    public String toString() {
+        return "Message{type=%s, dataLength=%d}".formatted(type, data.length);
+    }
 }
