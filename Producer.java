@@ -18,12 +18,9 @@ public class Producer {
 
             String portStr = String.valueOf(port);
             byte[] portData = portStr.getBytes();
-            byte[] data = new byte[portData.length + 1];
-            data[0] = (byte) portData.length; 
-            System.arraycopy(portData, 0, data, 1, portData.length);
 
             // Write port
-            Message.writeMessageToStream(bos, new Message(MessageType.P_REG, data));
+            Message.writeMessageToStream(bos, new Message(MessageType.P_REG, portData));
 
             // Read back from the stream
             Optional<Message> response = Message.readMessageFromStream(bis); 
@@ -53,12 +50,9 @@ public class Producer {
             while(true){
                 // Read user input
                 byte[] input = sc.nextLine().getBytes();
-                byte[] data = new byte[input.length + 1];
-                data[0] = (byte) input.length; 
-                System.arraycopy(input, 0, data, 1, input.length);
 
                 // Write echo message
-                Message.writeMessageToStream(bos, new Message(MessageType.ECHO, data));
+                Message.writeMessageToStream(bos, new Message(MessageType.ECHO, input));
 
                 // Read back from the stream
                 Optional<Message> response = Message.readMessageFromStream(bis); 
