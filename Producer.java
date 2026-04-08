@@ -25,7 +25,7 @@ public class Producer {
             // Read back from the stream
             Optional<Message> response = Message.readMessageFromStream(bis); 
             if(response.isPresent()){
-                System.out.printf("Message: %s%n", response.get());
+                System.out.println(response.get());
             }
         } catch (Exception e) {
             System.out.println("There is problem with sending port data to broker");
@@ -57,11 +57,11 @@ public class Producer {
                 // Read back from the stream
                 Optional<Message> response = Message.readMessageFromStream(bis); 
                 if(response.isPresent()){
-                    System.out.printf("Message: %s%n", response.get());
+                    System.out.println(response.get());
                 }
             }
         }catch(Exception e){
-            System.out.println("Something wrong when starting server");
+            System.out.println("Something wrong when starting producer server");
         }
     }
 }

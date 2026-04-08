@@ -59,7 +59,7 @@ public class Broker {
 
     public byte[] handleEcho (byte[] echoData){
         String input = new String(echoData);
-        String output = "I have received: " + input;
+        String output = "Echo: " + input;
         return output.getBytes();
     }
 

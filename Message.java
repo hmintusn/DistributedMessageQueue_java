@@ -97,6 +97,6 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message{type=%s, dataLength=%d}".formatted(type, data.length);
+        return "Message{type=%s, data=%s}".formatted(type, new String(data));
     }
 }
