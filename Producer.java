@@ -34,14 +34,15 @@ public class Producer {
 
     public void startProducerServer(int port){
         try{
-            // Send port to broker for registering
-            sendPortDataToBroker(port);
-
-            // Socket + bind + listen
+            // Socket + bind + listen (FIRST - before registering with broker)
             final ServerSocket server = new ServerSocket(port, 123, 
                 InetAddress.getByName("127.0.0.1")); //backlog 
-            System.out.println("Server waiting client...");
+            System.out.println("Producer server listening on port " + port);
             
+            // Send port to broker for registering (AFTER server is ready)
+            sendPortDataToBroker(port);
+            
+            System.out.println("Waiting for broker connection...");
             Socket socket = server.accept(); // Accept TCP connection
             var bis = new BufferedInputStream(socket.getInputStream());
             var bos = new BufferedOutputStream(socket.getOutputStream());

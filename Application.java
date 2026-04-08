@@ -28,7 +28,7 @@ public class Application {
             try {
                 int port = Integer.parseInt(args[1]);
                 Producer producer = new Producer();
-                producer.startProducerServer((short) port); // similar to int16
+                producer.startProducerServer((short) port); 
             } catch (NumberFormatException e) {
                 System.out.println("Invalid port: " + args[1]);
             }
