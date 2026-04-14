@@ -17,6 +17,7 @@ public class Producer {
             Scanner sc = new Scanner(System.in);
 
             String portStr = String.valueOf(port);
+            ProducerRegisterRequest prr = new ProducerRegisterRequest(port, topi)
             byte[] portData = portStr.getBytes();
 
             // Write port
@@ -49,11 +50,14 @@ public class Producer {
             Scanner sc = new Scanner(System.in);
   
             while(true){
-                // Read user input
+                // Read from stdin 
                 byte[] input = sc.nextLine().getBytes();
 
+                // Write P_CM
+                Message.writeMessageToStream(bos, new Message(MessageType.P_CM, input));
+                
                 // Write echo message
-                Message.writeMessageToStream(bos, new Message(MessageType.ECHO, input));
+                // Message.writeMessageToStream(bos, new Message(MessageType.ECHO, input));
 
                 // Read back from the stream
                 Optional<Message> response = Message.readMessageFromStream(bis); 

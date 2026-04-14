@@ -40,6 +40,12 @@ public class Message {
             case R_P_REG:
                 data = new byte[]{streamMessage[1]};
                 return Optional.of(new Message(MessageType.R_P_REG, data));
+            case P_CM:
+                data = new byte[]{streamMessage[1]};
+                return Optional.of(new Message(MessageType.P_CM, data));
+            case R_P_CM:
+                data = new byte[]{streamMessage[1]};
+                return Optional.of(new Message(MessageType.R_P_CM, data));
             default:
                 return Optional.empty();
         }
