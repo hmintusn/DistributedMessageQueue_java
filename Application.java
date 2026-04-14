@@ -27,8 +27,10 @@ public class Application {
 
             try {
                 int port = Integer.parseInt(args[1]);
-                Producer producer = new Producer();
-                producer.startProducerServer((short) port); 
+                int topicId = Integer.parseInt(args[2]);
+                ProducerRegisterRequest prr = new ProducerRegisterRequest(port, topicId);
+                Producer producer = new Producer(port, topicId);
+                producer.startProducerServer(); 
             } catch (NumberFormatException e) {
                 System.out.println("Invalid port: " + args[1]);
             }
