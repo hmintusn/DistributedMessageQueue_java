@@ -2,8 +2,8 @@
 import java.nio.ByteBuffer;
 
 class ProducerRegisterRequest {
-    // 2 byte for port (port must be < 2^16)
-    // 2 byte for topic id 
+    // 4 byte for port 
+    // 4 byte for topic id 
     private final int port;
     private final int topicId;
 
@@ -12,14 +12,15 @@ class ProducerRegisterRequest {
         this.topicId = topicId;
     }
 
-    public byte[] encode() {
-        ByteBuffer buffer = ByteBuffer.allocate(4);
-        buffer.putShort((short) port);
-        buffer.putShort((short) topicId);
+    // Instead of bit-shifting, using ByteBuffer for simplification
+    public byte[] toByte() {
+        ByteBuffer buffer = ByteBuffer.allocate(8);
+        buffer.putInt(port);
+        buffer.putInt(topicId);
         return buffer.array();
     }
 
-    public static ProducerRegisterRequest decode(byte[] data) {
+    public static ProducerRegisterRequest fromByte(byte[] data) {
         ByteBuffer buffer = ByteBuffer.wrap(data);
         int port = buffer.getShort();
         int topicId = buffer.getShort();

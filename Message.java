@@ -51,7 +51,7 @@ public class Message {
         }
     }
                     
-    // [ 6 1 h e l l o]
+    // [6 1 h e l l o]
     private static byte[] readFromStream(BufferedInputStream bis){
         try{
             final int length = bis.read(); 

@@ -67,9 +67,6 @@ public class Broker {
             case P_REG:
                 response = handleProducerRegister(message.getData());
                 return Optional.of(new Message(MessageType.R_P_REG, response));
-            case P_CM:
-                response = handleProducerConsumeMessage(message.getData());
-                return Optional.of(new Message(MessageType.R_P_CM, response));
             default:
                 return Optional.empty();
         }
@@ -81,17 +78,21 @@ public class Broker {
         return output.getBytes();
     }
 
-    public byte[] handleProducerConsumeMessage(byte[] consumeData){
-        messageQueue.push(consumeData);
+    public byte[] handleProducerConsumeMessage(byte[] consumeData, int topicId){
+        topics.get(topicId).getMessagQueue().push(consumeData);
+        topics.get(topicId).getMessagQueue().debug();
         return new byte[0];
     }
 
     public byte[] handleProducerRegister (byte[] producerRegistererData){
-        // Parse port 
-        String portStr = new String(producerRegistererData);
-        int port = Integer.parseInt(portStr);
-        System.out.println("Producer register at port: " + port);
+        // Parse port and topicId
+        ProducerRegisterRequest prr = ProducerRegisterRequest.fromByte(producerRegistererData);
+        int port = prr.getPort();
+        int topicId = prr.getTopicId();
+        System.out.printf("Producer register at port: %d and topicId: %d /n", port, topicId);
 
+        Topic topic = getOrCreateTopic(topicId);
+    
         // Spawn a thread (Dedicated channel)
         new Thread(() -> {
             try {
@@ -102,12 +103,14 @@ public class Broker {
                 BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
 
                 while (true) {
-                    Optional<Message> parsedMessage = Message.readMessageFromStream(bis);
-                    if (parsedMessage.isEmpty()) {
+                    Message parsedMessage = Message.readMessageFromStream(bis).get();
+                    if (parsedMessage == null) {
                         System.out.println("Parsed message is empty");
                         break; 
                     }
-                    Optional<Message> response = processBrokerMessage(parsedMessage.get());
+                    
+                    byte[] responseData = handleProducerConsumeMessage(parsedMessage.getData(), topic.getTopicId());
+                    Optional<Message> response = new Optional.of(new Message(MessageType.R_P_REG, responseData));
 
                     // Write back
                     response.ifPresent(resp -> Message.writeMessageToStream(bos, resp));
@@ -120,4 +123,16 @@ public class Broker {
         }).start();
         return new byte[]{0};
     }
+
+    private Topic getOrCreateTopic(int topicId){
+        return topics.stream()
+            .filter(t -> t.getTopicId() == topicId)
+            .findFirst()
+            .orElseGet(() ->{
+                Topic newTopic = new Topic(topicId);
+                topics.add(newTopic);
+                return newTopic;
+            });
+    }
+
 }

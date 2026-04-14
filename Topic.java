@@ -7,4 +7,12 @@ public class Topic {
         this.messagQueue = new Queue();
     }
 
+    public int getTopicId() {
+        return topicId;
+    }
+
+    public Queue getMessagQueue() {
+        return messagQueue;
+    }
+
 }
