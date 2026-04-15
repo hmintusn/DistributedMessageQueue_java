@@ -22,8 +22,8 @@ class ProducerRegisterRequest {
 
     public static ProducerRegisterRequest fromByte(byte[] data) {
         ByteBuffer buffer = ByteBuffer.wrap(data);
-        int port = buffer.getShort();
-        int topicId = buffer.getShort();
+        int port = buffer.getInt();
+        int topicId = buffer.getInt();
         return new ProducerRegisterRequest(port, topicId);
     }
 

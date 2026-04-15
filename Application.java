@@ -28,7 +28,6 @@ public class Application {
             try {
                 int port = Integer.parseInt(args[1]);
                 int topicId = Integer.parseInt(args[2]);
-                ProducerRegisterRequest prr = new ProducerRegisterRequest(port, topicId);
                 Producer producer = new Producer(port, topicId);
                 producer.startProducerServer(); 
             } catch (NumberFormatException e) {

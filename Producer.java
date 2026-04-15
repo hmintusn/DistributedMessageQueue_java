@@ -23,7 +23,6 @@ public class Producer {
             
             BufferedInputStream bis = new BufferedInputStream(socket.getInputStream());
             BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
-            Scanner sc = new Scanner(System.in);
 
             // Write producer register message
             ProducerRegisterRequest prr = new ProducerRegisterRequest(port, topicId);

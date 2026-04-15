@@ -89,7 +89,7 @@ public class Broker {
         ProducerRegisterRequest prr = ProducerRegisterRequest.fromByte(producerRegistererData);
         int port = prr.getPort();
         int topicId = prr.getTopicId();
-        System.out.printf("Producer register at port: %d and topicId: %d /n", port, topicId);
+        System.out.printf("Producer register at port: %d and topicId: %d %n", port, topicId);
 
         Topic topic = getOrCreateTopic(topicId);
     
@@ -110,10 +110,10 @@ public class Broker {
                     }
                     
                     byte[] responseData = handleProducerConsumeMessage(parsedMessage.getData(), topic.getTopicId());
-                    Optional<Message> response = new Optional.of(new Message(MessageType.R_P_REG, responseData));
+                    Message response = new Message(MessageType.R_P_REG, responseData);
 
                     // Write back
-                    response.ifPresent(resp -> Message.writeMessageToStream(bos, resp));
+                    Message.writeMessageToStream(bos, response);
                 }
                 socket.close();
             } catch (Exception e) {
