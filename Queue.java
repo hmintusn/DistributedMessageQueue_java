@@ -70,9 +70,10 @@ public class Queue {
 
             byte[] data = new byte[size];
             System.arraycopy(buffer, cur, data, 0, size);
-            System.out.println(new String(data) + " | ");
+            System.out.print(new String(data) + " | ");
 
             cur = (cur + Constants.MAX_MESSAGE_SIZE) % TOTAL_SIZE;
         }
+        System.out.println("");
     }
 }

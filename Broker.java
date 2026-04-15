@@ -17,9 +17,9 @@ public class Broker {
         overhead of the 3-way handshake, kernel resource allocation,  and connection teardown (TIME_WAIT). 
     */
 
-    private List<Topic> topics; 
+    private Map<Integer, Topic> idToTopic; 
     public Broker() {
-        this.topics = new ArrayList<Topic>();
+        this.idToTopic = new HashMap<Integer, Topic>();
     }
 
     // Stream: [1 byte of length, 1 byte of type, the rest of byte of message]
@@ -79,9 +79,9 @@ public class Broker {
     }
 
     public byte[] handleProducerConsumeMessage(byte[] consumeData, int topicId){
-        topics.get(topicId).getMessagQueue().push(consumeData);
-        topics.get(topicId).getMessagQueue().debug();
-        return new byte[0];
+        idToTopic.get(topicId).getMessagQueue().push(consumeData);
+        idToTopic.get(topicId).getMessagQueue().debug();
+        return new byte[1];
     }
 
     public byte[] handleProducerRegister (byte[] producerRegistererData){
@@ -108,7 +108,7 @@ public class Broker {
                         System.out.println("Parsed message is empty");
                         break; 
                     }
-                    
+                    System.out.println(parsedMessage);
                     byte[] responseData = handleProducerConsumeMessage(parsedMessage.getData(), topic.getTopicId());
                     Message response = new Message(MessageType.R_P_REG, responseData);
 
@@ -125,14 +125,12 @@ public class Broker {
     }
 
     private Topic getOrCreateTopic(int topicId){
-        return topics.stream()
-            .filter(t -> t.getTopicId() == topicId)
-            .findFirst()
-            .orElseGet(() ->{
-                Topic newTopic = new Topic(topicId);
-                topics.add(newTopic);
-                return newTopic;
-            });
+        Topic topic = idToTopic.get(topicId);
+        if(topic == null){
+            topic = new Topic(topicId);
+            idToTopic.put(topicId, topic);
+        }
+        return topic;
     }
 
 }

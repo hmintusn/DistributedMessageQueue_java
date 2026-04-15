@@ -41,7 +41,7 @@ public class Message {
                 data = new byte[]{streamMessage[1]};
                 return Optional.of(new Message(MessageType.R_P_REG, data));
             case P_CM:
-                data = new byte[]{streamMessage[1]};
+                data = Arrays.copyOfRange(streamMessage, 1, streamMessage.length);
                 return Optional.of(new Message(MessageType.P_CM, data));
             case R_P_CM:
                 data = new byte[]{streamMessage[1]};
@@ -96,7 +96,7 @@ public class Message {
             bos.write(data, 0, data.length);
             bos.flush();    
         } catch (Exception e) {
-            System.out.println("Something wrong when read message from stream");
+            System.out.println("Something wrong when write message to stream");
             e.printStackTrace();
         }
     }
