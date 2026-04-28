@@ -1,3 +1,5 @@
+import common.Constants;
+
 public class Queue {
     // Fixed-size slot ring buffer
     private final int TOTAL_SIZE = Constants.MAX_MESSAGE_SIZE * Constants.QUEUE_CAPACITY;

@@ -5,6 +5,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
 
+import common.Constants;
+import protocol.ProducerRegisterRequest;
+
 public class Broker {
     
     /*
