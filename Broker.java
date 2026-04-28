@@ -5,6 +5,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
 
+import common.Constants;
+import common.CreateResult;
+import protocol.ConsumerRegisterRequest;
+import protocol.ProducerRegisterRequest;
+
 public class Broker {
     
     /*
@@ -17,7 +22,7 @@ public class Broker {
         overhead of the 3-way handshake, kernel resource allocation,  and connection teardown (TIME_WAIT). 
     */
 
-    private Map<Integer, Topic> idToTopic; 
+    private static Map<Integer, Topic> idToTopic; 
     public Broker() {
         this.idToTopic = new HashMap<Integer, Topic>();
     }
@@ -41,7 +46,7 @@ public class Broker {
                 Optional<Message> parsedMessage = Message.readMessageFromStream(bis);
                 if (parsedMessage.isPresent()) {
                     // Write back
-                    Optional<Message> response = processBrokerMessage(parsedMessage.get());
+                    Optional<Message> response = handleMessageToBroker(parsedMessage.get());
                     if(response.isPresent()){
                         Message.writeMessageToStream(bos, response.get()); 
                     }
@@ -58,35 +63,55 @@ public class Broker {
     }
 
     // Process: message -> message
-    public Optional<Message> processBrokerMessage (Message message){
+    public Optional<Message> handleMessageToBroker (Message message){
         byte[] response;
         switch (message.getType()) {
             case ECHO:
-                response = handleEcho(message.getData());
+                response = processEcho(message.getData());
                 return Optional.of(new Message(MessageType.R_ECHO, response));
             case P_REG:
-                response = handleProducerRegister(message.getData());
+                response = processProducerRegisterMessage(message.getData());
                 return Optional.of(new Message(MessageType.R_P_REG, response));
+            case C_REG:
+                response = processConsumerRegisterMessage(message.getData());
+                return Optional.of(new Message(MessageType.R_C_REG, response));
             default:
                 return Optional.empty();
         }
     }
 
-    public byte[] handleEcho (byte[] echoData){
+    public byte[] processEcho (byte[] echoData){
         String input = new String(echoData);
         String output = "Echo: " + input;
         return output.getBytes();
     }
 
-    public byte[] handleProducerConsumeMessage(byte[] consumeData, int topicId){
+    public byte[] handleProducerConsumeMessage (byte[] consumeData, int topicId){
         idToTopic.get(topicId).getMessagQueue().push(consumeData);
         idToTopic.get(topicId).getMessagQueue().debug();
         return new byte[1];
     }
 
-    public byte[] handleProducerRegister (byte[] producerRegistererData){
+    public byte[] processConsumerRegisterMessage (byte[] consumerRegisterRawData){
         // Parse port and topicId
-        ProducerRegisterRequest prr = ProducerRegisterRequest.fromByte(producerRegistererData);
+        ConsumerRegisterRequest crr = ConsumerRegisterRequest.fromByte(consumerRegisterRawData);
+        int port = crr.getPort();
+        int topicId = crr.getTopicId();
+        int groupId = crr.getConsumerGroupId();
+        System.out.printf("Producer register at port: %d, topicId: %d, consumerGroupId  %n", 
+            port, topicId, groupId);
+
+        Topic topic = getOrCreateTopic(topicId);
+        CreateResult<ConsumerGroup> result = getOrCreateConsumerGroup(groupId, topicId);
+        ConsumerGroup group = result.value();
+
+        startConsumerGroupConsumption(top);
+        return new byte[]{0};
+    }
+
+    public byte[] processProducerRegisterMessage (byte[] producerRegistererRawData){
+        // Parse port and topicId
+        ProducerRegisterRequest prr = ProducerRegisterRequest.fromByte(producerRegistererRawData);
         int port = prr.getPort();
         int topicId = prr.getTopicId();
         System.out.printf("Producer register at port: %d and topicId: %d %n", port, topicId);
@@ -109,7 +134,8 @@ public class Broker {
                         break; 
                     }
                     System.out.println(parsedMessage);
-                    byte[] responseData = handleProducerConsumeMessage(parsedMessage.getData(), topic.getTopicId());
+                    byte[] responseData = handleProducerConsumeMessage(parsedMessage.getData(), 
+                        topic.getTopicId());
                     Message response = new Message(MessageType.R_P_REG, responseData);
 
                     // Write back
@@ -133,4 +159,50 @@ public class Broker {
         return topic;
     }
 
+
+    private CreateResult<ConsumerGroup> getOrCreateConsumerGroup(int groupId, int topicId){
+        var cgroups = idToTopic.get(topicId).getConsumerGroups();
+        for(var group : cgroups){
+            if(group.getGroupId() == groupId){
+                return new CreateResult<>(group, false);
+            }
+        } 
+        ConsumerGroup newGroup = new ConsumerGroup(groupId, 0);
+        cgroups.add(newGroup);
+        return new CreateResult<>(newGroup, true);
+    }
+
+    public void startConsumerGroupConsumption(int topicId){
+        new Thread(() -> {
+            try {
+                Socket socket = new Socket("127.0.0.1", port);
+                System.out.println("Connected to producer at port " + port);
+
+                BufferedInputStream bis = new BufferedInputStream(socket.getInputStream());
+                BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
+
+                while (true) {
+                    // Get the peek of message queue for consumption 
+                    var consumeMessage =;
+
+                    Message parsedMessage = Message.readMessageFromStream(bis).get();
+                    if (parsedMessage == null) {
+                        System.out.println("Parsed message is empty");
+                        break; 
+                    }
+                    System.out.println(parsedMessage);
+                    byte[] responseData = handleProducerConsumeMessage(parsedMessage.getData(), 
+                        topic.getTopicId());
+                    Message response = new Message(MessageType.R_P_REG, responseData);
+
+                    // Write back
+                    Message.writeMessageToStream(bos, response);
+                }
+                socket.close();
+            } catch (Exception e) {
+                System.out.println("Error in producer connection thread");
+                e.printStackTrace();
+            }
+        }).start();
+    }
 }

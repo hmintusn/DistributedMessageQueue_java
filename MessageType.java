@@ -4,10 +4,12 @@ public enum MessageType {
     ECHO((byte) 1),
     P_REG((byte) 2),    //Producer register
     P_CM((byte) 3),    // Producer consume message 
+    C_REG((byte) 2),    //Consumer register
     // Response
     R_ECHO((byte) 101),
     R_P_REG((byte) 102),
-    R_P_CM((byte) 103);
+    R_P_CM((byte) 103),
+    R_C_REG((byte) 104);
 
     private final byte code;
 

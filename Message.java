@@ -46,6 +46,12 @@ public class Message {
             case R_P_CM:
                 data = new byte[]{streamMessage[1]};
                 return Optional.of(new Message(MessageType.R_P_CM, data));
+            case C_REG:
+                data = Arrays.copyOfRange(streamMessage, 1, streamMessage.length);
+                return Optional.of(new Message(MessageType.C_REG, data));
+            case R_C_REG:
+                data = new byte[]{streamMessage[1]};
+                return Optional.of(new Message(MessageType.R_C_REG, data));
             default:
                 return Optional.empty();
         }

@@ -1,3 +1,5 @@
+import common.Constants;
+
 public class Queue {
     // Fixed-size slot ring buffer
     private final int TOTAL_SIZE = Constants.MAX_MESSAGE_SIZE * Constants.QUEUE_CAPACITY;
@@ -5,8 +7,9 @@ public class Queue {
     private final byte[] buffer = new byte[TOTAL_SIZE];
     private final byte[] sizes = new byte[Constants.QUEUE_CAPACITY];
 
-    private int head;
-    private int tail;
+    // pointing to first byte of a slot
+    private int head; 
+    private int tail; 
     
     /* 
         e.g. MAX_MESSAGE_SIZE = 5
@@ -52,6 +55,23 @@ public class Queue {
         return data;
         
     }
+
+    public byte[] peekAt(int offset){
+        if (isEmpty()) {
+            return null; 
+        }
+
+        int position = (head + offset * Constants.MAX_MESSAGE_SIZE) % TOTAL_SIZE;
+        int slotIndex = position / Constants.MAX_MESSAGE_SIZE;
+        int size = sizes[slotIndex];
+
+        byte[] data = new byte[Constants.MAX_MESSAGE_SIZE];
+        System.arraycopy(buffer, position, data, 0, size);
+
+        return data;
+        
+    }
+
     protected boolean isEmpty() {
         return head == tail;
     }
