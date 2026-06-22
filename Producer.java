@@ -58,6 +58,7 @@ public class Producer {
   
             while(true){
                 // Read from stdin 
+                System.out.print("ENTER MESSAGE: ");
                 byte[] input = sc.nextLine().getBytes();
 
                 // Write P_CM

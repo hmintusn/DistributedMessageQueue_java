@@ -18,7 +18,7 @@ public class ConsumerRegisterRequest {
 
     // Instead of bit-shifting, using ByteBuffer for simplification
     public byte[] toByte() {
-        ByteBuffer buffer = ByteBuffer.allocate(8);
+        ByteBuffer buffer = ByteBuffer.allocate(12);
         buffer.putInt(port);
         buffer.putInt(topicId);
         buffer.putInt(consumerGroupId);

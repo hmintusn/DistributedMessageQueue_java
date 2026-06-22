@@ -33,6 +33,23 @@ public class Application {
             } catch (NumberFormatException e) {
                 System.out.println("Invalid port: " + args[1]);
             }
+        } else if ("consumer".equals(args[0])) {
+            System.out.println("Trying to start consumer processes");
+
+            if (args.length < 2) {
+                System.out.println("Missing port argument");
+                return;
+            }
+
+            try {
+                int port = Integer.parseInt(args[1]);
+                int topicId = Integer.parseInt(args[2]);
+                int groupId = Integer.parseInt(args[3]);
+                Consumer consumer = new Consumer(port, topicId, groupId);
+                consumer.startConsumerServer();
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid port: " + args[1]);
+            }
         }
     }
 }

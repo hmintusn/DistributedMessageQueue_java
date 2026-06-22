@@ -80,7 +80,11 @@ public class Message {
             if(data.length == 0){
                 return Optional.empty();
             }
-            return parseMessage(data);
+            var message = parseMessage(data);
+            if(message.isPresent()){
+                System.out.printf("RECEIVE: %s%n", message.get());
+            }
+            return message;
         } catch (Exception e) {
             System.out.println("Something wrong when read message from stream");
             e.printStackTrace();
@@ -90,7 +94,7 @@ public class Message {
     
     public static void writeMessageToStream(BufferedOutputStream bos, Message message){
         try {
-            System.out.println("Send message to stream");
+            System.out.printf("SEND: %s%n", message);
             byte[] data = message.getData();
             // Write length = type (1 byte) + data
             bos.write((byte) (data.length + 1));     

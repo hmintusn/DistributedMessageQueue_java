@@ -82,7 +82,7 @@ public class Queue {
 
     
     public void debug(){
-        System.out.println("Debug queue");
+        System.out.print("DEBUG QUEUE: ");
         int cur = head;
         while(cur != tail){
             int slotIndex = cur / Constants.MAX_MESSAGE_SIZE;
