@@ -47,7 +47,7 @@ public class Queue {
         int slotIndex = head / Constants.MAX_MESSAGE_SIZE;
         int size = sizes[slotIndex];
 
-        byte[] data = new byte[Constants.MAX_MESSAGE_SIZE];
+        byte[] data = new byte[size];
         System.arraycopy(buffer, head, data, 0, size);
 
         head = (head + Constants.MAX_MESSAGE_SIZE) % TOTAL_SIZE;
@@ -65,7 +65,7 @@ public class Queue {
         int slotIndex = position / Constants.MAX_MESSAGE_SIZE;
         int size = sizes[slotIndex];
 
-        byte[] data = new byte[Constants.MAX_MESSAGE_SIZE];
+        byte[] data = new byte[size];
         System.arraycopy(buffer, position, data, 0, size);
 
         return data;
