@@ -1,0 +1,58 @@
+{
+  "projectRoot": "c:\\Users\\84328\\nguhoc\\Desktop\\EngineerPro\\Kafka_from_scratch\\Kafka-java",
+  "batchFiles": [
+    {"path": ".understand-anything/.understandignore", "language": "unknown", "sizeLines": 21, "fileCategory": "code"},
+    {"path": "Application.java", "language": "java", "sizeLines": 37, "fileCategory": "code"},
+    {"path": "Broker.java", "language": "java", "sizeLines": 222, "fileCategory": "code"},
+    {"path": "common/Constants.java", "language": "java", "sizeLines": 9, "fileCategory": "code"},
+    {"path": "common/CreateResult.java", "language": "java", "sizeLines": 6, "fileCategory": "code"},
+    {"path": "Consumer.java", "language": "java", "sizeLines": 126, "fileCategory": "code"},
+    {"path": "ConsumerGroup.java", "language": "java", "sizeLines": 44, "fileCategory": "code"},
+    {"path": "learning/idk/NESTED_CLASS.md", "language": "markdown", "sizeLines": 64, "fileCategory": "docs"},
+    {"path": "learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md", "language": "markdown", "sizeLines": 107, "fileCategory": "docs"},
+    {"path": "Message.java", "language": "java", "sizeLines": 113, "fileCategory": "code"},
+    {"path": "MessageType.java", "language": "java", "sizeLines": 30, "fileCategory": "code"},
+    {"path": "Producer.java", "language": "java", "sizeLines": 79, "fileCategory": "code"},
+    {"path": "protocol/ConsumerRegisterRequest.java", "language": "java", "sizeLines": 39, "fileCategory": "code"},
+    {"path": "protocol/ProducerRegisterRequest.java", "language": "java", "sizeLines": 32, "fileCategory": "code"},
+    {"path": "Queue.java", "language": "java", "sizeLines": 99, "fileCategory": "code"},
+    {"path": "README.md", "language": "markdown", "sizeLines": 5, "fileCategory": "docs"},
+    {"path": "TCPClient.java", "language": "java", "sizeLines": 36, "fileCategory": "code"},
+    {"path": "TCPServer.java", "language": "java", "sizeLines": 33, "fileCategory": "code"},
+    {"path": "Topic.java", "language": "java", "sizeLines": 27, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    ".understand-anything/.understandignore": [],
+    "Application.java": [],
+    "Broker.java": [
+      "common/Constants.java",
+      "common/CreateResult.java",
+      "protocol/ConsumerRegisterRequest.java",
+      "protocol/ProducerRegisterRequest.java"
+    ],
+    "common/Constants.java": [],
+    "common/CreateResult.java": [],
+    "Consumer.java": [
+      "common/Constants.java",
+      "protocol/ConsumerRegisterRequest.java"
+    ],
+    "ConsumerGroup.java": [],
+    "learning/idk/NESTED_CLASS.md": [],
+    "learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md": [],
+    "Message.java": [],
+    "MessageType.java": [],
+    "Producer.java": [
+      "common/Constants.java",
+      "protocol/ProducerRegisterRequest.java"
+    ],
+    "protocol/ConsumerRegisterRequest.java": [],
+    "protocol/ProducerRegisterRequest.java": [],
+    "Queue.java": [
+      "common/Constants.java"
+    ],
+    "README.md": [],
+    "TCPClient.java": [],
+    "TCPServer.java": [],
+    "Topic.java": []
+  }
+}

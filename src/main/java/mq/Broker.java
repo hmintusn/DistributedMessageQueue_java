@@ -1,14 +1,18 @@
-import common.Constants;
-import common.CreateResult;
+package mq;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
-import protocol.ConsumerRegisterRequest;
-import protocol.ProducerRegisterRequest;
+
+import mq.common.Constants;
+import mq.common.CreateResult;
+import mq.protocol.ConsumerRegisterRequest;
+import mq.protocol.ProducerRegisterRequest;
 
 public class Broker {
     
@@ -41,8 +45,8 @@ public class Broker {
                 InetAddress.getByName("127.0.0.1")); //backlog 
             System.out.println("Server waiting client...");
             
-            // Multiplex: Connection start and close connection sequetially 
-            //          -> make 1 port can serve multiple connection
+            // TCP Connection Multiplex: Connection start/close squetially 
+            //          -> make 1 port can serve multiple clients 
             while(true){
                 Socket socket = server.accept(); // Accept TCP connection
                 var bis = new BufferedInputStream(socket.getInputStream());
@@ -178,16 +182,20 @@ public class Broker {
                     var topic = idToTopic.get(topicId);
                     var offset = topic.getConsumerGroups().get(groupId).getOffset();
                     
-                    cgroup.getLock().lock();
                     
                     // Get the peek of message queue for consumption 
                     byte[] consumeMessage = topic.getMessageQueue().peekAt(offset);
+                    if (consumeMessage == null){
+                        continue;
+                    }
+                    
+                    cgroup.getLock().lock();
                     for (ConsumerGroup.ConsumerConnection consumer : consumers){
                         if (consumer.isAvailable) {
                             BufferedInputStream bis = new BufferedInputStream(consumer.connection.getInputStream());
                             BufferedOutputStream bos = new BufferedOutputStream(consumer.connection.getOutputStream());
                             
-                            // Write P_CM message to ready consumer
+                            // Write P_CM message to available consumer
                             consumer.isAvailable = false;
                             Message.writeMessageToStream(bos, new Message(MessageType.P_CM, consumeMessage));
     
@@ -231,7 +239,7 @@ public class Broker {
     private void stopAndPop(Topic topic){
         while(true){
             try {
-                TimeUnit.SECONDS.sleep(100);
+                TimeUnit.SECONDS.sleep(50);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 return;

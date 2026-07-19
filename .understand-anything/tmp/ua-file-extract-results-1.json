@@ -1,0 +1,2998 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 19,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "Application.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 2,
+          "endLine": 37,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Application",
+          "startLine": 1,
+          "endLine": 38,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 2,
+          "isDefault": false
+        },
+        {
+          "name": "Application",
+          "line": 1,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 5
+        },
+        {
+          "caller": "main",
+          "callee": "java.util.Arrays.toString",
+          "lineNumber": 5
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 8
+        },
+        {
+          "caller": "main",
+          "callee": "\"broker\".equals",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "new Broker",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "broker.startBrokerServer",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.printf",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "e.getMessage",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "\"producer\".equals",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "Integer.parseInt",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "new Producer",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "producer.startProducerServer",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "Broker.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 222,
+      "nonEmptyLines": 193,
+      "functions": [
+        {
+          "name": "Broker",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "startBrokerServer",
+          "startLine": 31,
+          "endLine": 63,
+          "params": []
+        },
+        {
+          "name": "handleMessageToBroker",
+          "startLine": 66,
+          "endLine": 81,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "processEcho",
+          "startLine": 83,
+          "endLine": 87,
+          "params": [
+            "echoData"
+          ]
+        },
+        {
+          "name": "handleProducerConsumeMessage",
+          "startLine": 89,
+          "endLine": 93,
+          "params": [
+            "consumeData",
+            "topicId"
+          ]
+        },
+        {
+          "name": "processProducerRegisterMessage",
+          "startLine": 96,
+          "endLine": 135,
+          "params": [
+            "producerRegistererRawData"
+          ]
+        },
+        {
+          "name": "processConsumerRegisterMessage",
+          "startLine": 137,
+          "endLine": 160,
+          "params": [
+            "consumerRegisterRawData"
+          ]
+        },
+        {
+          "name": "startConsumerGroupConsumption",
+          "startLine": 162,
+          "endLine": 197,
+          "params": [
+            "topicId",
+            "groupId"
+          ]
+        },
+        {
+          "name": "getOrCreateTopic",
+          "startLine": 199,
+          "endLine": 206,
+          "params": [
+            "topicId"
+          ]
+        },
+        {
+          "name": "getOrCreateConsumerGroup",
+          "startLine": 209,
+          "endLine": 220,
+          "params": [
+            "groupId",
+            "topicId"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Broker",
+          "startLine": 12,
+          "endLine": 222,
+          "methods": [
+            "Broker",
+            "startBrokerServer",
+            "handleMessageToBroker",
+            "processEcho",
+            "handleProducerConsumeMessage",
+            "processProducerRegisterMessage",
+            "processConsumerRegisterMessage",
+            "startConsumerGroupConsumption",
+            "getOrCreateTopic",
+            "getOrCreateConsumerGroup"
+          ],
+          "properties": [
+            "idToTopic"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Broker",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "startBrokerServer",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "handleMessageToBroker",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "processEcho",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "handleProducerConsumeMessage",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "processProducerRegisterMessage",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "processConsumerRegisterMessage",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "startConsumerGroupConsumption",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "Broker",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Broker",
+          "callee": "new HashMap<Integer, Topic>",
+          "lineNumber": 27
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "new ServerSocket",
+          "lineNumber": 34
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "InetAddress.getByName",
+          "lineNumber": 35
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "System.out.println",
+          "lineNumber": 36
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "server.accept",
+          "lineNumber": 41
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 42
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "socket.getInputStream",
+          "lineNumber": 42
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 43
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "socket.getOutputStream",
+          "lineNumber": 43
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "Message.readMessageFromStream",
+          "lineNumber": 46
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "parsedMessage.isPresent",
+          "lineNumber": 47
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "handleMessageToBroker",
+          "lineNumber": 49
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "parsedMessage.get",
+          "lineNumber": 49
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "response.isPresent",
+          "lineNumber": 50
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "Message.writeMessageToStream",
+          "lineNumber": 51
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "response.get",
+          "lineNumber": 51
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "bis.close",
+          "lineNumber": 56
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "bos.close",
+          "lineNumber": 57
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "socket.close",
+          "lineNumber": 58
+        },
+        {
+          "caller": "startBrokerServer",
+          "callee": "System.out.println",
+          "lineNumber": 61
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "message.getType",
+          "lineNumber": 68
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "processEcho",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "message.getData",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "Optional.of",
+          "lineNumber": 71
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "new Message",
+          "lineNumber": 71
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "processProducerRegisterMessage",
+          "lineNumber": 73
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "message.getData",
+          "lineNumber": 73
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "Optional.of",
+          "lineNumber": 74
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "new Message",
+          "lineNumber": 74
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "processConsumerRegisterMessage",
+          "lineNumber": 76
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "message.getData",
+          "lineNumber": 76
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "Optional.of",
+          "lineNumber": 77
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "new Message",
+          "lineNumber": 77
+        },
+        {
+          "caller": "handleMessageToBroker",
+          "callee": "Optional.empty",
+          "lineNumber": 79
+        },
+        {
+          "caller": "processEcho",
+          "callee": "new String",
+          "lineNumber": 84
+        },
+        {
+          "caller": "processEcho",
+          "callee": "output.getBytes",
+          "lineNumber": 86
+        },
+        {
+          "caller": "handleProducerConsumeMessage",
+          "callee": "idToTopic.get(topicId).getMessagQueue().push",
+          "lineNumber": 90
+        },
+        {
+          "caller": "handleProducerConsumeMessage",
+          "callee": "idToTopic.get(topicId).getMessagQueue",
+          "lineNumber": 90
+        },
+        {
+          "caller": "handleProducerConsumeMessage",
+          "callee": "idToTopic.get",
+          "lineNumber": 90
+        },
+        {
+          "caller": "handleProducerConsumeMessage",
+          "callee": "idToTopic.get(topicId).getMessagQueue().debug",
+          "lineNumber": 91
+        },
+        {
+          "caller": "handleProducerConsumeMessage",
+          "callee": "idToTopic.get(topicId).getMessagQueue",
+          "lineNumber": 91
+        },
+        {
+          "caller": "handleProducerConsumeMessage",
+          "callee": "idToTopic.get",
+          "lineNumber": 91
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "ProducerRegisterRequest.fromByte",
+          "lineNumber": 98
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "prr.getPort",
+          "lineNumber": 99
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "prr.getTopicId",
+          "lineNumber": 100
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "System.out.printf",
+          "lineNumber": 101
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "getOrCreateTopic",
+          "lineNumber": 103
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "new Thread(() -> {\r\n            try {\r\n                Socket socket = new Socket(\"127.0.0.1\", port);\r\n                System.out.println(\"Connected to producer at port \" + port);\r\n                \r\n                BufferedInputStream bis = new BufferedInputStream(socket.getInputStream());\r\n                BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());\r\n                \r\n                while (true) {\r\n                    Message parsedMessage = Message.readMessageFromStream(bis).get();\r\n                    if (parsedMessage == null) {\r\n                        System.out.println(\"Parsed message is empty\");\r\n                        break; \r\n                    }\r\n                    System.out.println(parsedMessage);\r\n                    byte[] responseData = handleProducerConsumeMessage(parsedMessage.getData(), \r\n                    topic.getTopicId());\r\n                    Message response = new Message(MessageType.R_P_REG, responseData);\r\n                    \r\n                    // Write back\r\n                    Message.writeMessageToStream(bos, response);\r\n                }\r\n                socket.close();\r\n            } catch (Exception e) {\r\n                System.out.println(\"Error in producer connection thread\");\r\n                e.printStackTrace();\r\n            }\r\n        }).start",
+          "lineNumber": 106
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "new Thread",
+          "lineNumber": 106
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "new Socket",
+          "lineNumber": 108
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "System.out.println",
+          "lineNumber": 109
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 111
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "socket.getInputStream",
+          "lineNumber": 111
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 112
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "socket.getOutputStream",
+          "lineNumber": 112
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "Message.readMessageFromStream(bis).get",
+          "lineNumber": 115
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "Message.readMessageFromStream",
+          "lineNumber": 115
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "System.out.println",
+          "lineNumber": 117
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "System.out.println",
+          "lineNumber": 120
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "handleProducerConsumeMessage",
+          "lineNumber": 121
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "parsedMessage.getData",
+          "lineNumber": 121
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "topic.getTopicId",
+          "lineNumber": 122
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "new Message",
+          "lineNumber": 123
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "Message.writeMessageToStream",
+          "lineNumber": 126
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "socket.close",
+          "lineNumber": 128
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "System.out.println",
+          "lineNumber": 130
+        },
+        {
+          "caller": "processProducerRegisterMessage",
+          "callee": "e.printStackTrace",
+          "lineNumber": 131
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "ConsumerRegisterRequest.fromByte",
+          "lineNumber": 139
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "crr.getPort",
+          "lineNumber": 140
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "crr.getTopicId",
+          "lineNumber": 141
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "crr.getConsumerGroupId",
+          "lineNumber": 142
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "System.out.printf",
+          "lineNumber": 143
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "getOrCreateTopic",
+          "lineNumber": 146
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "getOrCreateConsumerGroup",
+          "lineNumber": 147
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "result.value",
+          "lineNumber": 148
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "startConsumerGroupConsumption",
+          "lineNumber": 149
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "topic.getTopicId",
+          "lineNumber": 149
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "group.getGroupId",
+          "lineNumber": 149
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "new Socket",
+          "lineNumber": 151
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "System.out.println",
+          "lineNumber": 152
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "idToTopic.get(topicId).getConsumerGroups().get(groupId).addConsumer",
+          "lineNumber": 154
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "idToTopic.get(topicId).getConsumerGroups().get",
+          "lineNumber": 154
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "idToTopic.get(topicId).getConsumerGroups",
+          "lineNumber": 154
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "idToTopic.get",
+          "lineNumber": 154
+        },
+        {
+          "caller": "processConsumerRegisterMessage",
+          "callee": "e.printStackTrace",
+          "lineNumber": 157
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "new Thread(() -> {\r\n            try {\r\n                var consumers = idToTopic.get(topicId).getConsumerGroups().get(groupId).getConsumers();\r\n                var topic = idToTopic.get(topicId);\r\n                var offset = topic.getConsumerGroups().get(groupId).getOffset();\r\n\r\n                // Get the peek of message queue for consumption \r\n                byte[] consumeMessage = topic.getMessagQueue().peekAt(offset);\r\n                for (ConsumerGroup.ConsumerConnection consumer : consumers){\r\n                    if (consumer.status) {\r\n                        BufferedInputStream bis = new BufferedInputStream(consumer.connection.getInputStream());\r\n                        BufferedOutputStream bos = new BufferedOutputStream(consumer.connection.getOutputStream());\r\n                        \r\n                        // Write P_CM message to ready consumer\r\n                        consumer.status = false;\r\n                        Message.writeMessageToStream(bos, new Message(MessageType.P_CM, consumeMessage));;\r\n\r\n                        // Read ack\r\n                        Message parsedMessage = Message.readMessageFromStream(bis).get();\r\n                        if (parsedMessage == null) {\r\n                            System.out.println(\"Parsed message is empty\");\r\n                            break; \r\n                        }\r\n                        System.out.println(parsedMessage);\r\n                        if (parsedMessage.getType() == MessageType.R_P_CM){\r\n                            consumer.status = true;\r\n                        }\r\n                    }\r\n                }\r\n            } catch (Exception e) {\r\n                System.out.println(\"Error in producer connection thread\");\r\n                e.printStackTrace();\r\n            }\r\n        }).start",
+          "lineNumber": 163
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "new Thread",
+          "lineNumber": 163
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "idToTopic.get(topicId).getConsumerGroups().get(groupId).getConsumers",
+          "lineNumber": 165
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "idToTopic.get(topicId).getConsumerGroups().get",
+          "lineNumber": 165
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "idToTopic.get(topicId).getConsumerGroups",
+          "lineNumber": 165
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "idToTopic.get",
+          "lineNumber": 165
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "idToTopic.get",
+          "lineNumber": 166
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "topic.getConsumerGroups().get(groupId).getOffset",
+          "lineNumber": 167
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "topic.getConsumerGroups().get",
+          "lineNumber": 167
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "topic.getConsumerGroups",
+          "lineNumber": 167
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "topic.getMessagQueue().peekAt",
+          "lineNumber": 170
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "topic.getMessagQueue",
+          "lineNumber": 170
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 173
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "consumer.connection.getInputStream",
+          "lineNumber": 173
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 174
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "consumer.connection.getOutputStream",
+          "lineNumber": 174
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "Message.writeMessageToStream",
+          "lineNumber": 178
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "new Message",
+          "lineNumber": 178
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "Message.readMessageFromStream(bis).get",
+          "lineNumber": 181
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "Message.readMessageFromStream",
+          "lineNumber": 181
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "System.out.println",
+          "lineNumber": 183
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "System.out.println",
+          "lineNumber": 186
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "parsedMessage.getType",
+          "lineNumber": 187
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "System.out.println",
+          "lineNumber": 193
+        },
+        {
+          "caller": "startConsumerGroupConsumption",
+          "callee": "e.printStackTrace",
+          "lineNumber": 194
+        },
+        {
+          "caller": "getOrCreateTopic",
+          "callee": "idToTopic.get",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getOrCreateTopic",
+          "callee": "new Topic",
+          "lineNumber": 202
+        },
+        {
+          "caller": "getOrCreateTopic",
+          "callee": "idToTopic.put",
+          "lineNumber": 203
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "idToTopic.get(topicId).getConsumerGroups",
+          "lineNumber": 210
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "idToTopic.get",
+          "lineNumber": 210
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "cgroups.stream()\r\n            .filter(group -> group.getGroupId() == groupId)\r\n            .findFirst()\r\n            .map(group -> new CreateResult<>(group, false)).orElseGet",
+          "lineNumber": 211
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "cgroups.stream()\r\n            .filter(group -> group.getGroupId() == groupId)\r\n            .findFirst().map",
+          "lineNumber": 211
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "cgroups.stream()\r\n            .filter(group -> group.getGroupId() == groupId).findFirst",
+          "lineNumber": 211
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "cgroups.stream().filter",
+          "lineNumber": 211
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "cgroups.stream",
+          "lineNumber": 211
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "group.getGroupId",
+          "lineNumber": 212
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "new CreateResult<>",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "new ConsumerGroup",
+          "lineNumber": 216
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "cgroups.add",
+          "lineNumber": 217
+        },
+        {
+          "caller": "getOrCreateConsumerGroup",
+          "callee": "new CreateResult<>",
+          "lineNumber": 218
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 9,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "common/Constants.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 8,
+      "classes": [
+        {
+          "name": "Constants",
+          "startLine": 3,
+          "endLine": 10,
+          "methods": [],
+          "properties": [
+            "BROKER_PORT",
+            "MAX_MESSAGE_SIZE",
+            "QUEUE_CAPACITY"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BROKER_PORT",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "MAX_MESSAGE_SIZE",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "QUEUE_CAPACITY",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "Constants",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "common/CreateResult.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "Consumer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "Consumer",
+          "startLine": 17,
+          "endLine": 21,
+          "params": [
+            "port",
+            "topicId",
+            "groupId"
+          ]
+        },
+        {
+          "name": "getGroupId",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "getPort",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "getTopicId",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "sendRegistrationToBroker",
+          "startLine": 35,
+          "endLine": 88,
+          "params": []
+        },
+        {
+          "name": "startConsumerServer",
+          "startLine": 90,
+          "endLine": 125,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Consumer",
+          "startLine": 12,
+          "endLine": 126,
+          "methods": [
+            "Consumer",
+            "getGroupId",
+            "getPort",
+            "getTopicId",
+            "sendRegistrationToBroker",
+            "startConsumerServer"
+          ],
+          "properties": [
+            "port",
+            "topicId",
+            "groupId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Consumer",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "getGroupId",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "getPort",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "getTopicId",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "startConsumerServer",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "Consumer",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new Socket",
+          "lineNumber": 38
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 40
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "socket.getInputStream",
+          "lineNumber": 40
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 41
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "socket.getOutputStream",
+          "lineNumber": 41
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new ConsumerRegisterRequest",
+          "lineNumber": 44
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "Message.writeMessageToStream",
+          "lineNumber": 45
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new Message",
+          "lineNumber": 45
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "crr.toByte",
+          "lineNumber": 45
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new Thread(() -> {\r\n                try {\r\n                    // var consumers = idToTopic.get(topicId).getConsumerGroups().get(groupId).getConsumers();\r\n                    // var topic = idToTopic.get(topicId);\r\n                    // var offset = topic.getConsumerGroups().get(groupId).getOffset();\r\n\r\n                    // // Get the peek of message queue for consumption \r\n                    // byte[] consumeMessage = topic.getMessagQueue().peekAt(offset);\r\n                    // for (ConsumerGroup.ConsumerConnection consumer : consumers){\r\n                    //     if (consumer.status) {\r\n                    //         BufferedInputStream bis = new BufferedInputStream(consumer.connection.getInputStream());\r\n                    //         BufferedOutputStream bos = new BufferedOutputStream(consumer.connection.getOutputStream());\r\n                            \r\n                    //         // Write P_CM message to ready consumer\r\n                    //         consumer.status = false;\r\n                    //         Message.writeMessageToStream(bos, new Message(MessageType.P_CM, consumeMessage));;\r\n\r\n                    //         // Read ack\r\n                    //         Message parsedMessage = Message.readMessageFromStream(bis).get();\r\n                    //         if (parsedMessage == null) {\r\n                    //             System.out.println(\"Parsed message is empty\");\r\n                    //             break; \r\n                    //         }\r\n                    //         System.out.println(parsedMessage);\r\n                    //         if (parsedMessage.getType() == MessageType.R_P_CM){\r\n                    //             consumer.status = true;\r\n                    //         }\r\n                    //     }\r\n                    // }\r\n                } catch (Exception e) {\r\n                    System.out.println(\"Error in producer connection thread\");\r\n                    e.printStackTrace();\r\n                }\r\n            }).start",
+          "lineNumber": 47
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new Thread",
+          "lineNumber": 47
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "System.out.println",
+          "lineNumber": 77
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "e.printStackTrace",
+          "lineNumber": 78
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "Message.readMessageFromStream",
+          "lineNumber": 81
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "response.isPresent",
+          "lineNumber": 82
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "System.out.println",
+          "lineNumber": 83
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "response.get",
+          "lineNumber": 83
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "System.out.println",
+          "lineNumber": 86
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "new ServerSocket",
+          "lineNumber": 93
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "InetAddress.getByName",
+          "lineNumber": 94
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "System.out.println",
+          "lineNumber": 95
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "sendRegistrationToBroker",
+          "lineNumber": 98
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "System.out.println",
+          "lineNumber": 100
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "server.accept",
+          "lineNumber": 101
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 102
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "socket.getInputStream",
+          "lineNumber": 102
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 103
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "socket.getOutputStream",
+          "lineNumber": 103
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "new Scanner",
+          "lineNumber": 104
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "sc.nextLine().getBytes",
+          "lineNumber": 108
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "sc.nextLine",
+          "lineNumber": 108
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "Message.writeMessageToStream",
+          "lineNumber": 111
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "new Message",
+          "lineNumber": 111
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "Message.readMessageFromStream",
+          "lineNumber": 117
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "response.isPresent",
+          "lineNumber": 118
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "System.out.println",
+          "lineNumber": 119
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "response.get",
+          "lineNumber": 119
+        },
+        {
+          "caller": "startConsumerServer",
+          "callee": "System.out.println",
+          "lineNumber": 123
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "ConsumerGroup.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "ConsumerGroup",
+          "startLine": 12,
+          "endLine": 16,
+          "params": [
+            "groupId",
+            "offset"
+          ]
+        },
+        {
+          "name": "getGroupId",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "getOffset",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "getConsumers",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "addConsumer",
+          "startLine": 31,
+          "endLine": 33,
+          "params": [
+            "socket"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConsumerGroup",
+          "startLine": 7,
+          "endLine": 44,
+          "methods": [
+            "ConsumerGroup",
+            "getGroupId",
+            "getOffset",
+            "getConsumers",
+            "addConsumer"
+          ],
+          "properties": [
+            "groupId",
+            "offset",
+            "consumers"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ConsumerGroup",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "getGroupId",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "getOffset",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "getConsumers",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "addConsumer",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "ConsumerGroup",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ConsumerGroup",
+          "callee": "new ArrayList<>",
+          "lineNumber": 15
+        },
+        {
+          "caller": "addConsumer",
+          "callee": "consumers.add",
+          "lineNumber": 32
+        },
+        {
+          "caller": "addConsumer",
+          "callee": "new ConsumerConnection",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "learning/idk/NESTED_CLASS.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 64,
+      "nonEmptyLines": 46,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 108,
+      "nonEmptyLines": 82,
+      "sections": [
+        {
+          "heading": "Windows vs Linux TCP Connection Behavior - Learning Sheet",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "🎯 Problem Statement",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "📊 Root Cause Analysis",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "The Issue: Timing",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "❌ Original Code (Ubuntu works, Windows fails):",
+          "level": 4,
+          "line": 17
+        },
+        {
+          "heading": "**Linux & Windows Kernel Behavior **",
+          "level": 3,
+          "line": 44
+        },
+        {
+          "heading": "❗ Important:",
+          "level": 4,
+          "line": 52
+        },
+        {
+          "heading": "**Why it appears different in practice**",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "✅ Solution",
+          "level": 2,
+          "line": 69
+        },
+        {
+          "heading": "Change: Producer.java - Create ServerSocket FIRST",
+          "level": 3,
+          "line": 71
+        },
+        {
+          "heading": "📝 Key Takeaways",
+          "level": 2,
+          "line": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": "Message.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 114,
+      "nonEmptyLines": 102,
+      "functions": [
+        {
+          "name": "Message",
+          "startLine": 10,
+          "endLine": 13,
+          "params": [
+            "type",
+            "data"
+          ]
+        },
+        {
+          "name": "getType",
+          "startLine": 15,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "getData",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "parseMessage",
+          "startLine": 25,
+          "endLine": 58,
+          "params": [
+            "streamMessage"
+          ]
+        },
+        {
+          "name": "readFromStream",
+          "startLine": 61,
+          "endLine": 75,
+          "params": [
+            "bis"
+          ]
+        },
+        {
+          "name": "readMessageFromStream",
+          "startLine": 77,
+          "endLine": 89,
+          "params": [
+            "bis"
+          ]
+        },
+        {
+          "name": "writeMessageToStream",
+          "startLine": 91,
+          "endLine": 108,
+          "params": [
+            "bos",
+            "message"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 110,
+          "endLine": 113,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Message",
+          "startLine": 6,
+          "endLine": 114,
+          "methods": [
+            "Message",
+            "getType",
+            "getData",
+            "parseMessage",
+            "readFromStream",
+            "readMessageFromStream",
+            "writeMessageToStream",
+            "toString"
+          ],
+          "properties": [
+            "type",
+            "data"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Message",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "getType",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "getData",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "readMessageFromStream",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "writeMessageToStream",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "Message",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.empty",
+          "lineNumber": 27
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "MessageType.fromByte",
+          "lineNumber": 30
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Arrays.copyOfRange",
+          "lineNumber": 32
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.of",
+          "lineNumber": 33
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "new Message",
+          "lineNumber": 33
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Arrays.copyOfRange",
+          "lineNumber": 35
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.of",
+          "lineNumber": 36
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "new Message",
+          "lineNumber": 36
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Arrays.copyOfRange",
+          "lineNumber": 38
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.of",
+          "lineNumber": 39
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "new Message",
+          "lineNumber": 39
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.of",
+          "lineNumber": 42
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "new Message",
+          "lineNumber": 42
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Arrays.copyOfRange",
+          "lineNumber": 44
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.of",
+          "lineNumber": 45
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "new Message",
+          "lineNumber": 45
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.of",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "new Message",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Arrays.copyOfRange",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.of",
+          "lineNumber": 51
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "new Message",
+          "lineNumber": 51
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.of",
+          "lineNumber": 54
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "new Message",
+          "lineNumber": 54
+        },
+        {
+          "caller": "parseMessage",
+          "callee": "Optional.empty",
+          "lineNumber": 56
+        },
+        {
+          "caller": "readFromStream",
+          "callee": "bis.read",
+          "lineNumber": 63
+        },
+        {
+          "caller": "readFromStream",
+          "callee": "bis.read",
+          "lineNumber": 68
+        },
+        {
+          "caller": "readFromStream",
+          "callee": "System.out.println",
+          "lineNumber": 71
+        },
+        {
+          "caller": "readFromStream",
+          "callee": "e.printStackTrace",
+          "lineNumber": 72
+        },
+        {
+          "caller": "readMessageFromStream",
+          "callee": "readFromStream",
+          "lineNumber": 79
+        },
+        {
+          "caller": "readMessageFromStream",
+          "callee": "Optional.empty",
+          "lineNumber": 81
+        },
+        {
+          "caller": "readMessageFromStream",
+          "callee": "parseMessage",
+          "lineNumber": 83
+        },
+        {
+          "caller": "readMessageFromStream",
+          "callee": "System.out.println",
+          "lineNumber": 85
+        },
+        {
+          "caller": "readMessageFromStream",
+          "callee": "e.printStackTrace",
+          "lineNumber": 86
+        },
+        {
+          "caller": "readMessageFromStream",
+          "callee": "Optional.empty",
+          "lineNumber": 87
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "System.out.println",
+          "lineNumber": 93
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "message.getData",
+          "lineNumber": 94
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "bos.write",
+          "lineNumber": 96
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "bos.write",
+          "lineNumber": 99
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "message.getType().getCode",
+          "lineNumber": 99
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "message.getType",
+          "lineNumber": 99
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "bos.write",
+          "lineNumber": 102
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "bos.flush",
+          "lineNumber": 103
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "System.out.println",
+          "lineNumber": 105
+        },
+        {
+          "caller": "writeMessageToStream",
+          "callee": "e.printStackTrace",
+          "lineNumber": 106
+        },
+        {
+          "caller": "toString",
+          "callee": "\"Message{type=%s, data=%s}\".formatted",
+          "lineNumber": 112
+        },
+        {
+          "caller": "toString",
+          "callee": "new String",
+          "lineNumber": 112
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "MessageType.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 26,
+      "callGraph": [
+        {
+          "caller": "fromByte",
+          "callee": "values",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "Producer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "Producer",
+          "startLine": 16,
+          "endLine": 19,
+          "params": [
+            "port",
+            "topicId"
+          ]
+        },
+        {
+          "name": "sendRegistrationToBroker",
+          "startLine": 21,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "startProducerServer",
+          "startLine": 43,
+          "endLine": 78,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Producer",
+          "startLine": 11,
+          "endLine": 79,
+          "methods": [
+            "Producer",
+            "sendRegistrationToBroker",
+            "startProducerServer"
+          ],
+          "properties": [
+            "port",
+            "topicId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Producer",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "startProducerServer",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "Producer",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new Socket",
+          "lineNumber": 24
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 26
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "socket.getInputStream",
+          "lineNumber": 26
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "socket.getOutputStream",
+          "lineNumber": 27
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new ProducerRegisterRequest",
+          "lineNumber": 30
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "Message.writeMessageToStream",
+          "lineNumber": 31
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "new Message",
+          "lineNumber": 31
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "prr.toByte",
+          "lineNumber": 31
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "Message.readMessageFromStream",
+          "lineNumber": 34
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "response.isPresent",
+          "lineNumber": 35
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "System.out.println",
+          "lineNumber": 36
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "response.get",
+          "lineNumber": 36
+        },
+        {
+          "caller": "sendRegistrationToBroker",
+          "callee": "System.out.println",
+          "lineNumber": 39
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "new ServerSocket",
+          "lineNumber": 46
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "InetAddress.getByName",
+          "lineNumber": 47
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "System.out.println",
+          "lineNumber": 48
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "sendRegistrationToBroker",
+          "lineNumber": 51
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "System.out.println",
+          "lineNumber": 53
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "server.accept",
+          "lineNumber": 54
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 55
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "socket.getInputStream",
+          "lineNumber": 55
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 56
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "socket.getOutputStream",
+          "lineNumber": 56
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "new Scanner",
+          "lineNumber": 57
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "sc.nextLine().getBytes",
+          "lineNumber": 61
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "sc.nextLine",
+          "lineNumber": 61
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "Message.writeMessageToStream",
+          "lineNumber": 64
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "new Message",
+          "lineNumber": 64
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "Message.readMessageFromStream",
+          "lineNumber": 70
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "response.isPresent",
+          "lineNumber": 71
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "System.out.println",
+          "lineNumber": 72
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "response.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "startProducerServer",
+          "callee": "System.out.println",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "protocol/ConsumerRegisterRequest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "ConsumerRegisterRequest",
+          "startLine": 13,
+          "endLine": 17,
+          "params": [
+            "port",
+            "topicId",
+            "consumerGroupId"
+          ]
+        },
+        {
+          "name": "toByte",
+          "startLine": 20,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "fromByte",
+          "startLine": 28,
+          "endLine": 34,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "getPort",
+          "startLine": 36,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "getTopicId",
+          "startLine": 37,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "getConsumerGroupId",
+          "startLine": 38,
+          "endLine": 38,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConsumerRegisterRequest",
+          "startLine": 5,
+          "endLine": 39,
+          "methods": [
+            "ConsumerRegisterRequest",
+            "toByte",
+            "fromByte",
+            "getPort",
+            "getTopicId",
+            "getConsumerGroupId"
+          ],
+          "properties": [
+            "port",
+            "topicId",
+            "consumerGroupId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ConsumerRegisterRequest",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "toByte",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "fromByte",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "getPort",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "getTopicId",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "getConsumerGroupId",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "ConsumerRegisterRequest",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toByte",
+          "callee": "ByteBuffer.allocate",
+          "lineNumber": 21
+        },
+        {
+          "caller": "toByte",
+          "callee": "buffer.putInt",
+          "lineNumber": 22
+        },
+        {
+          "caller": "toByte",
+          "callee": "buffer.putInt",
+          "lineNumber": 23
+        },
+        {
+          "caller": "toByte",
+          "callee": "buffer.putInt",
+          "lineNumber": 24
+        },
+        {
+          "caller": "toByte",
+          "callee": "buffer.array",
+          "lineNumber": 25
+        },
+        {
+          "caller": "fromByte",
+          "callee": "ByteBuffer.wrap",
+          "lineNumber": 29
+        },
+        {
+          "caller": "fromByte",
+          "callee": "buffer.getInt",
+          "lineNumber": 30
+        },
+        {
+          "caller": "fromByte",
+          "callee": "buffer.getInt",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fromByte",
+          "callee": "buffer.getInt",
+          "lineNumber": 32
+        },
+        {
+          "caller": "fromByte",
+          "callee": "new ConsumerRegisterRequest",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "protocol/ProducerRegisterRequest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "ProducerRegisterRequest",
+          "startLine": 11,
+          "endLine": 14,
+          "params": [
+            "port",
+            "topicId"
+          ]
+        },
+        {
+          "name": "toByte",
+          "startLine": 17,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "fromByte",
+          "startLine": 24,
+          "endLine": 29,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "getPort",
+          "startLine": 31,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "getTopicId",
+          "startLine": 32,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProducerRegisterRequest",
+          "startLine": 5,
+          "endLine": 33,
+          "methods": [
+            "ProducerRegisterRequest",
+            "toByte",
+            "fromByte",
+            "getPort",
+            "getTopicId"
+          ],
+          "properties": [
+            "port",
+            "topicId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProducerRegisterRequest",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "toByte",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "fromByte",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "getPort",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "getTopicId",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "ProducerRegisterRequest",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toByte",
+          "callee": "ByteBuffer.allocate",
+          "lineNumber": 18
+        },
+        {
+          "caller": "toByte",
+          "callee": "buffer.putInt",
+          "lineNumber": 19
+        },
+        {
+          "caller": "toByte",
+          "callee": "buffer.putInt",
+          "lineNumber": 20
+        },
+        {
+          "caller": "toByte",
+          "callee": "buffer.array",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fromByte",
+          "callee": "ByteBuffer.wrap",
+          "lineNumber": 25
+        },
+        {
+          "caller": "fromByte",
+          "callee": "buffer.getInt",
+          "lineNumber": 26
+        },
+        {
+          "caller": "fromByte",
+          "callee": "buffer.getInt",
+          "lineNumber": 27
+        },
+        {
+          "caller": "fromByte",
+          "callee": "new ProducerRegisterRequest",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "Queue.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 74,
+      "functions": [
+        {
+          "name": "Queue",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "push",
+          "startLine": 25,
+          "endLine": 41,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "pop",
+          "startLine": 43,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "peekAt",
+          "startLine": 59,
+          "endLine": 73,
+          "params": [
+            "offset"
+          ]
+        },
+        {
+          "name": "isEmpty",
+          "startLine": 75,
+          "endLine": 77,
+          "params": []
+        },
+        {
+          "name": "isFull",
+          "startLine": 79,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "debug",
+          "startLine": 84,
+          "endLine": 98,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Queue",
+          "startLine": 3,
+          "endLine": 99,
+          "methods": [
+            "Queue",
+            "push",
+            "pop",
+            "peekAt",
+            "isEmpty",
+            "isFull",
+            "debug"
+          ],
+          "properties": [
+            "TOTAL_SIZE",
+            "buffer",
+            "sizes",
+            "head",
+            "tail"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Queue",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "push",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "pop",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "peekAt",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "debug",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "Queue",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "push",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 27
+        },
+        {
+          "caller": "push",
+          "callee": "isFull",
+          "lineNumber": 29
+        },
+        {
+          "caller": "push",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 30
+        },
+        {
+          "caller": "push",
+          "callee": "System.arraycopy",
+          "lineNumber": 36
+        },
+        {
+          "caller": "pop",
+          "callee": "isEmpty",
+          "lineNumber": 44
+        },
+        {
+          "caller": "pop",
+          "callee": "System.arraycopy",
+          "lineNumber": 51
+        },
+        {
+          "caller": "peekAt",
+          "callee": "isEmpty",
+          "lineNumber": 60
+        },
+        {
+          "caller": "peekAt",
+          "callee": "System.arraycopy",
+          "lineNumber": 69
+        },
+        {
+          "caller": "debug",
+          "callee": "System.out.println",
+          "lineNumber": 85
+        },
+        {
+          "caller": "debug",
+          "callee": "System.arraycopy",
+          "lineNumber": 92
+        },
+        {
+          "caller": "debug",
+          "callee": "System.out.print",
+          "lineNumber": 93
+        },
+        {
+          "caller": "debug",
+          "callee": "new String",
+          "lineNumber": 93
+        },
+        {
+          "caller": "debug",
+          "callee": "System.out.println",
+          "lineNumber": 97
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "sections": [
+        {
+          "heading": "MessageQueue_java",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "TCPClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 6,
+          "endLine": 36,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TCPClient",
+          "startLine": 5,
+          "endLine": 37,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "TCPClient",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new Socket",
+          "lineNumber": 9
+        },
+        {
+          "caller": "main",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "socket.getInputStream",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "socket.getOutputStream",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "new Scanner",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "sc.nextLine",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main",
+          "callee": "input.getBytes",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "bos.write",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "bos.write",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "bos.flush",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "bis.read",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "bis.read",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "new String",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "TCPServer.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 5,
+          "endLine": 33,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TCPServer",
+          "startLine": 4,
+          "endLine": 34,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "TCPServer",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new ServerSocket",
+          "lineNumber": 8
+        },
+        {
+          "caller": "main",
+          "callee": "InetAddress.getByName",
+          "lineNumber": 8
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 9
+        },
+        {
+          "caller": "main",
+          "callee": "server.accept",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "new BufferedInputStream",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "socket.getInputStream",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "new BufferedOutputStream",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "socket.getOutputStream",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "bis.read",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "bis.read",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "new String",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "bos.write",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "bos.write",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "bos.flush",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "System.out.println",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "Topic.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 9,
+          "endLine": 13,
+          "params": [
+            "topicId"
+          ]
+        },
+        {
+          "name": "getTopicId",
+          "startLine": 15,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "getMessagQueue",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "getConsumerGroups",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Topic",
+          "startLine": 4,
+          "endLine": 27,
+          "methods": [
+            "Topic",
+            "getTopicId",
+            "getMessagQueue",
+            "getConsumerGroups"
+          ],
+          "properties": [
+            "topicId",
+            "messagQueue",
+            "consumerGroups"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "getTopicId",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "getMessagQueue",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "getConsumerGroups",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Topic",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Topic",
+          "callee": "new Queue",
+          "lineNumber": 11
+        },
+        {
+          "caller": "Topic",
+          "callee": "new ArrayList<>",
+          "lineNumber": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

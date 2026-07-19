@@ -1,4 +1,5 @@
-import common.Constants;
+package mq;
+import mq.common.Constants;
 
 public class Queue {
     // Fixed-size slot ring buffer

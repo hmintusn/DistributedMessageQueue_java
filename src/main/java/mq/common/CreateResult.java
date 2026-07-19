@@ -1,4 +1,4 @@
-package common;
+package mq.common;
 
 // Generic wrapper
 public record CreateResult<T>(T value, boolean created) {

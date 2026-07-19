@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Broker",
+            "type": "java",
+            "request": "launch",
+            "mainClass": "mq.Application",
+            "args": "broker"
+        },
+        {
+            "name": "Producer",
+            "type": "java",
+            "request": "launch",
+            "mainClass": "mq.Application",
+            "args": "producer 9936 1"
+        },
+        {
+            "name": "Consumer",
+            "type": "java",
+            "request": "launch",
+            "mainClass": "mq.Application",
+            "args": "consumer 9836 1 0"
+        }
+    ]
+}

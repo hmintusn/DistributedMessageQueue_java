@@ -1,0 +1,231 @@
+[
+  {
+    "id": "file:.understand-anything/.understandignore",
+    "type": "file",
+    "name": ".understandignore",
+    "filePath": ".understand-anything/.understandignore",
+    "summary": "Understand-Anything ignore rules that exclude build artifacts, IDE metadata, and generated analysis output from graph scanning.",
+    "tags": [
+      "configuration",
+      "tooling",
+      "analysis"
+    ]
+  },
+  {
+    "id": "file:Application.java",
+    "type": "file",
+    "name": "Application.java",
+    "filePath": "Application.java",
+    "summary": "CLI entry point that dispatches to the broker or producer based on the first argument and passes port/topic identifiers for the producer path.",
+    "tags": [
+      "entry-point",
+      "cli",
+      "bootstrap"
+    ]
+  },
+  {
+    "id": "file:Broker.java",
+    "type": "file",
+    "name": "Broker.java",
+    "filePath": "Broker.java",
+    "summary": "Central TCP broker that accepts client connections, routes typed messages, registers producers and consumers, and drives topic queues plus consumer-group delivery.",
+    "tags": [
+      "service",
+      "broker",
+      "tcp",
+      "message-handler"
+    ]
+  },
+  {
+    "id": "file:common/Constants.java",
+    "type": "file",
+    "name": "Constants.java",
+    "filePath": "common/Constants.java",
+    "summary": "Shared numeric limits and the default broker listen port used across clients and the in-memory queue.",
+    "tags": [
+      "configuration",
+      "constants",
+      "shared"
+    ]
+  },
+  {
+    "id": "file:common/CreateResult.java",
+    "type": "file",
+    "name": "CreateResult.java",
+    "filePath": "common/CreateResult.java",
+    "summary": "Generic record pairing a created or found value with a boolean flag indicating whether the broker newly allocated the resource.",
+    "tags": [
+      "data-model",
+      "utility",
+      "generic"
+    ]
+  },
+  {
+    "id": "file:Consumer.java",
+    "type": "file",
+    "name": "Consumer.java",
+    "filePath": "Consumer.java",
+    "summary": "TCP consumer client that listens locally, registers with the broker via a typed protocol message, and exchanges consume/ack traffic over buffered streams.",
+    "tags": [
+      "consumer",
+      "tcp",
+      "client"
+    ]
+  },
+  {
+    "id": "file:ConsumerGroup.java",
+    "type": "file",
+    "name": "ConsumerGroup.java",
+    "filePath": "ConsumerGroup.java",
+    "summary": "Per-topic consumer group state tracking group id, read offset, and active broker-facing socket connections for coordinated delivery.",
+    "tags": [
+      "data-model",
+      "consumer-group",
+      "coordination"
+    ]
+  },
+  {
+    "id": "document:learning/idk/NESTED_CLASS.md",
+    "type": "document",
+    "name": "NESTED_CLASS.md",
+    "filePath": "learning/idk/NESTED_CLASS.md",
+    "summary": "Learning note explaining Java nested and inner classes, with examples tied to the consumer connection holder inside ConsumerGroup.",
+    "tags": [
+      "documentation",
+      "java",
+      "nested-class"
+    ]
+  },
+  {
+    "id": "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md",
+    "type": "document",
+    "name": "WINDOWS_VS_LINUX_TCP_ISSUE.md",
+    "filePath": "learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md",
+    "summary": "Troubleshooting write-up on Windows vs Linux TCP timing when the producer registers before its ServerSocket is listening, including the fix to bind the server socket first.",
+    "tags": [
+      "documentation",
+      "tcp",
+      "cross-platform"
+    ]
+  },
+  {
+    "id": "file:Message.java",
+    "type": "file",
+    "name": "Message.java",
+    "filePath": "Message.java",
+    "summary": "Wire-level message envelope with type byte and payload, plus stream helpers to read and write length-prefixed frames on TCP connections.",
+    "tags": [
+      "serialization",
+      "protocol",
+      "utility"
+    ]
+  },
+  {
+    "id": "file:MessageType.java",
+    "type": "file",
+    "name": "MessageType.java",
+    "filePath": "MessageType.java",
+    "summary": "Enumeration of broker protocol opcodes for echo, registration, consume, and acknowledgment exchanges between clients and the broker.",
+    "tags": [
+      "protocol",
+      "enum",
+      "type-definition"
+    ]
+  },
+  {
+    "id": "file:Producer.java",
+    "type": "file",
+    "name": "Producer.java",
+    "filePath": "Producer.java",
+    "summary": "TCP producer client that binds a local port, registers with the broker, and streams user-entered payloads as typed consume messages.",
+    "tags": [
+      "producer",
+      "tcp",
+      "client"
+    ]
+  },
+  {
+    "id": "file:protocol/ConsumerRegisterRequest.java",
+    "type": "file",
+    "name": "ConsumerRegisterRequest.java",
+    "filePath": "protocol/ConsumerRegisterRequest.java",
+    "summary": "Binary registration payload encoding consumer listen port, topic id, and consumer group id for broker-side routing.",
+    "tags": [
+      "protocol",
+      "serialization",
+      "registration"
+    ]
+  },
+  {
+    "id": "file:protocol/ProducerRegisterRequest.java",
+    "type": "file",
+    "name": "ProducerRegisterRequest.java",
+    "filePath": "protocol/ProducerRegisterRequest.java",
+    "summary": "Binary registration payload encoding producer listen port and topic id so the broker can open a reverse connection for ingest.",
+    "tags": [
+      "protocol",
+      "serialization",
+      "registration"
+    ]
+  },
+  {
+    "id": "file:Queue.java",
+    "type": "file",
+    "name": "Queue.java",
+    "filePath": "Queue.java",
+    "summary": "Fixed-capacity ring buffer storing variable-length byte records with push, pop, peek-by-offset, and debug introspection for topic backlogs.",
+    "tags": [
+      "data-structure",
+      "queue",
+      "storage"
+    ]
+  },
+  {
+    "id": "document:README.md",
+    "type": "document",
+    "name": "README.md",
+    "filePath": "README.md",
+    "summary": "Minimal project readme with javac/java commands to compile all sources and run the broker or producer via Application.",
+    "tags": [
+      "documentation",
+      "entry-point",
+      "build"
+    ]
+  },
+  {
+    "id": "file:TCPClient.java",
+    "type": "file",
+    "name": "TCPClient.java",
+    "filePath": "TCPClient.java",
+    "summary": "Standalone TCP echo client demo that sends length-prefixed strings to a local server for low-level socket experimentation.",
+    "tags": [
+      "utility",
+      "tcp",
+      "demo"
+    ]
+  },
+  {
+    "id": "file:TCPServer.java",
+    "type": "file",
+    "name": "TCPServer.java",
+    "filePath": "TCPServer.java",
+    "summary": "Standalone TCP echo server demo that reads length-prefixed frames and echoes them back for basic networking practice.",
+    "tags": [
+      "utility",
+      "tcp",
+      "demo"
+    ]
+  },
+  {
+    "id": "file:Topic.java",
+    "type": "file",
+    "name": "Topic.java",
+    "filePath": "Topic.java",
+    "summary": "Topic aggregate holding a message queue instance and the list of consumer groups subscribed to that topic id.",
+    "tags": [
+      "data-model",
+      "topic",
+      "messaging"
+    ]
+  }
+]

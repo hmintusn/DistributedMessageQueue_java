@@ -2,8 +2,8 @@
 
 compile: javac -d out *.java
 run: 
-    - java -cp out Application broker
+    - ./gradlew run --args="broker"
     <!--Args of producer: producer port and topicId -->
-    - java -cp out Application producer 9936 1
+    - ./gradlew run --args="producer 9936 1"
     <!--Args of consumer: consumer port, topicId, groupId -->
-    - java -cp out Application consumer 9836 1 0
+    - ./gradlew run --args="consumer 9836 1 0"

@@ -1,0 +1,42 @@
+{
+  "scriptCompleted": true,
+  "stats": {
+    "filesScanned": 19,
+    "filesWithImports": 4,
+    "totalEdges": 9
+  },
+  "importMap": {
+    ".understand-anything/.understandignore": [],
+    "Application.java": [],
+    "Broker.java": [
+      "common/Constants.java",
+      "common/CreateResult.java",
+      "protocol/ConsumerRegisterRequest.java",
+      "protocol/ProducerRegisterRequest.java"
+    ],
+    "common/Constants.java": [],
+    "common/CreateResult.java": [],
+    "Consumer.java": [
+      "common/Constants.java",
+      "protocol/ConsumerRegisterRequest.java"
+    ],
+    "ConsumerGroup.java": [],
+    "learning/idk/NESTED_CLASS.md": [],
+    "learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md": [],
+    "Message.java": [],
+    "MessageType.java": [],
+    "Producer.java": [
+      "common/Constants.java",
+      "protocol/ProducerRegisterRequest.java"
+    ],
+    "protocol/ConsumerRegisterRequest.java": [],
+    "protocol/ProducerRegisterRequest.java": [],
+    "Queue.java": [
+      "common/Constants.java"
+    ],
+    "README.md": [],
+    "TCPClient.java": [],
+    "TCPServer.java": [],
+    "Topic.java": []
+  }
+}

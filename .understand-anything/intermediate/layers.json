@@ -1,0 +1,70 @@
+[
+  {
+    "id": "layer:entry",
+    "name": "Entry & Clients",
+    "description": "CLI bootstrap via Application plus standalone Producer and Consumer TCP programs that register with the broker and exchange messages.",
+    "nodeIds": [
+      "file:Application.java",
+      "file:Producer.java",
+      "file:Consumer.java"
+    ]
+  },
+  {
+    "id": "layer:service",
+    "name": "Broker Service",
+    "description": "Central Broker that accepts TCP connections, routes typed protocol messages, and coordinates topic queues with consumer-group delivery.",
+    "nodeIds": [
+      "file:Broker.java"
+    ]
+  },
+  {
+    "id": "layer:data",
+    "name": "Messaging State",
+    "description": "In-memory topic aggregates, ring-buffer queues, consumer-group offsets, and broker allocation results that hold message backlog state.",
+    "nodeIds": [
+      "file:Queue.java",
+      "file:Topic.java",
+      "file:ConsumerGroup.java",
+      "file:common/CreateResult.java"
+    ]
+  },
+  {
+    "id": "layer:protocol",
+    "name": "Wire Protocol",
+    "description": "Length-prefixed Message envelopes, MessageType opcodes, and binary registration payloads used between clients and the broker.",
+    "nodeIds": [
+      "file:Message.java",
+      "file:MessageType.java",
+      "file:protocol/ConsumerRegisterRequest.java",
+      "file:protocol/ProducerRegisterRequest.java"
+    ]
+  },
+  {
+    "id": "layer:utility",
+    "name": "Shared Utilities",
+    "description": "Cross-cutting constants for ports and queue limits plus standalone TCP echo demos for low-level socket experimentation.",
+    "nodeIds": [
+      "file:common/Constants.java",
+      "file:TCPClient.java",
+      "file:TCPServer.java"
+    ]
+  },
+  {
+    "id": "layer:documentation",
+    "name": "Documentation",
+    "description": "README build/run instructions and learning notes on nested classes and cross-platform TCP registration timing.",
+    "nodeIds": [
+      "document:README.md",
+      "document:learning/idk/NESTED_CLASS.md",
+      "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md"
+    ]
+  },
+  {
+    "id": "layer:config",
+    "name": "Tooling Configuration",
+    "description": "Understand-Anything ignore rules that exclude build artifacts and generated analysis output from codebase scanning.",
+    "nodeIds": [
+      "file:.understand-anything/.understandignore"
+    ]
+  }
+]
