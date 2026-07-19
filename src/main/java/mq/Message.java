@@ -1,5 +1,7 @@
+package mq;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -60,14 +62,22 @@ public class Message {
     // [6 1 h e l l o]
     private static byte[] readFromStream(BufferedInputStream bis){
         try{
-            final int length = bis.read(); 
+            final int length = bis.read();
             if (length <= 0) { // validate data.length
                 return new byte[0];
             }
-            var message = new byte[length]; // message includes: type + data 
-            bis.read(message, 0, length);
+
+            byte[] message = new byte[length]; // message includes: type + data
+            int offset = 0;
+            while (offset < length) {
+                int bytesRead = bis.read(message, offset, length - offset);
+                if (bytesRead < 0) {
+                    return new byte[0];
+                }
+                offset += bytesRead;
+            }
             return message;
-        }catch(Exception e){
+        }catch(IOException e){
             System.out.println("Something wrong when reading from stream");
             e.printStackTrace();
             return new byte[0];

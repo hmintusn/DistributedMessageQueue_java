@@ -1,3 +1,4 @@
+package mq;
 public enum MessageType {
     // Explicit mapping between byte and enum
     //  → prevents breaking protocol when enum order changes.

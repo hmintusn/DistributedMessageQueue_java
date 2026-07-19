@@ -1,5 +1,9 @@
-import common.Constants;
-import common.CreateResult;
+package mq;
+import mq.common.Constants;
+import mq.common.CreateResult;
+import mq.protocol.ConsumerRegisterRequest;
+import mq.protocol.ProducerRegisterRequest;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.net.InetAddress;
@@ -7,8 +11,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import protocol.ConsumerRegisterRequest;
-import protocol.ProducerRegisterRequest;
 
 public class Broker {
     
@@ -178,10 +180,14 @@ public class Broker {
                     var topic = idToTopic.get(topicId);
                     var offset = topic.getConsumerGroups().get(groupId).getOffset();
                     
-                    cgroup.getLock().lock();
                     
                     // Get the peek of message queue for consumption 
                     byte[] consumeMessage = topic.getMessageQueue().peekAt(offset);
+                    if (consumeMessage == null){
+                        continue;
+                    }
+                    
+                    cgroup.getLock().lock();
                     for (ConsumerGroup.ConsumerConnection consumer : consumers){
                         if (consumer.isAvailable) {
                             BufferedInputStream bis = new BufferedInputStream(consumer.connection.getInputStream());

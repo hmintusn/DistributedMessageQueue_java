@@ -1,0 +1,65 @@
+[
+  {
+    "source": "file:Broker.java",
+    "target": "file:common/Constants.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  },
+  {
+    "source": "file:Broker.java",
+    "target": "file:common/CreateResult.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  },
+  {
+    "source": "file:Broker.java",
+    "target": "file:protocol/ConsumerRegisterRequest.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  },
+  {
+    "source": "file:Broker.java",
+    "target": "file:protocol/ProducerRegisterRequest.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  },
+  {
+    "source": "file:Consumer.java",
+    "target": "file:common/Constants.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  },
+  {
+    "source": "file:Consumer.java",
+    "target": "file:protocol/ConsumerRegisterRequest.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  },
+  {
+    "source": "file:Producer.java",
+    "target": "file:common/Constants.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  },
+  {
+    "source": "file:Producer.java",
+    "target": "file:protocol/ProducerRegisterRequest.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  },
+  {
+    "source": "file:Queue.java",
+    "target": "file:common/Constants.java",
+    "type": "imports",
+    "direction": "forward",
+    "weight": 0.7
+  }
+]

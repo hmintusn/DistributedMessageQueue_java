@@ -1,0 +1,1241 @@
+{
+  "nodes": [
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "Understand-Anything ignore rules that exclude build artifacts, IDE metadata, and generated analysis output from graph scanning.",
+      "tags": ["configuration", "tooling", "analysis"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Application.java",
+      "type": "file",
+      "name": "Application.java",
+      "filePath": "Application.java",
+      "summary": "CLI entry point that dispatches to the broker or producer based on the first argument and passes port/topic identifiers for the producer path.",
+      "tags": ["entry-point", "cli", "bootstrap"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Broker.java",
+      "type": "file",
+      "name": "Broker.java",
+      "filePath": "Broker.java",
+      "summary": "Central TCP broker that accepts client connections, routes typed messages, registers producers and consumers, and drives topic queues plus consumer-group delivery.",
+      "tags": ["service", "broker", "tcp", "message-handler"],
+      "complexity": "complex",
+      "languageNotes": "Uses per-connection threads and nested lambdas for producer ingest and consumer push loops."
+    },
+    {
+      "id": "file:common/Constants.java",
+      "type": "file",
+      "name": "Constants.java",
+      "filePath": "common/Constants.java",
+      "summary": "Shared numeric limits and the default broker listen port used across clients and the in-memory queue.",
+      "tags": ["configuration", "constants", "shared"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:common/CreateResult.java",
+      "type": "file",
+      "name": "CreateResult.java",
+      "filePath": "common/CreateResult.java",
+      "summary": "Generic record pairing a created or found value with a boolean flag indicating whether the broker newly allocated the resource.",
+      "tags": ["data-model", "utility", "generic"],
+      "complexity": "simple",
+      "languageNotes": "Java record used as a lightweight create-or-get result wrapper."
+    },
+    {
+      "id": "file:Consumer.java",
+      "type": "file",
+      "name": "Consumer.java",
+      "filePath": "Consumer.java",
+      "summary": "TCP consumer client that listens locally, registers with the broker via a typed protocol message, and exchanges consume/ack traffic over buffered streams.",
+      "tags": ["consumer", "tcp", "client"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ConsumerGroup.java",
+      "type": "file",
+      "name": "ConsumerGroup.java",
+      "filePath": "ConsumerGroup.java",
+      "summary": "Per-topic consumer group state tracking group id, read offset, and active broker-facing socket connections for coordinated delivery.",
+      "tags": ["data-model", "consumer-group", "coordination"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:learning/idk/NESTED_CLASS.md",
+      "type": "document",
+      "name": "NESTED_CLASS.md",
+      "filePath": "learning/idk/NESTED_CLASS.md",
+      "summary": "Learning note explaining Java nested and inner classes, with examples tied to the consumer connection holder inside ConsumerGroup.",
+      "tags": ["documentation", "java", "nested-class"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md",
+      "type": "document",
+      "name": "WINDOWS_VS_LINUX_TCP_ISSUE.md",
+      "filePath": "learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md",
+      "summary": "Troubleshooting write-up on Windows vs Linux TCP timing when the producer registers before its ServerSocket is listening, including the fix to bind the server socket first.",
+      "tags": ["documentation", "tcp", "cross-platform"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:Message.java",
+      "type": "file",
+      "name": "Message.java",
+      "filePath": "Message.java",
+      "summary": "Wire-level message envelope with type byte and payload, plus stream helpers to read and write length-prefixed frames on TCP connections.",
+      "tags": ["serialization", "protocol", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:MessageType.java",
+      "type": "file",
+      "name": "MessageType.java",
+      "filePath": "MessageType.java",
+      "summary": "Enumeration of broker protocol opcodes for echo, registration, consume, and acknowledgment exchanges between clients and the broker.",
+      "tags": ["protocol", "enum", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Producer.java",
+      "type": "file",
+      "name": "Producer.java",
+      "filePath": "Producer.java",
+      "summary": "TCP producer client that binds a local port, registers with the broker, and streams user-entered payloads as typed consume messages.",
+      "tags": ["producer", "tcp", "client"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:protocol/ConsumerRegisterRequest.java",
+      "type": "file",
+      "name": "ConsumerRegisterRequest.java",
+      "filePath": "protocol/ConsumerRegisterRequest.java",
+      "summary": "Binary registration payload encoding consumer listen port, topic id, and consumer group id for broker-side routing.",
+      "tags": ["protocol", "serialization", "registration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:protocol/ProducerRegisterRequest.java",
+      "type": "file",
+      "name": "ProducerRegisterRequest.java",
+      "filePath": "protocol/ProducerRegisterRequest.java",
+      "summary": "Binary registration payload encoding producer listen port and topic id so the broker can open a reverse connection for ingest.",
+      "tags": ["protocol", "serialization", "registration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Queue.java",
+      "type": "file",
+      "name": "Queue.java",
+      "filePath": "Queue.java",
+      "summary": "Fixed-capacity ring buffer storing variable-length byte records with push, pop, peek-by-offset, and debug introspection for topic backlogs.",
+      "tags": ["data-structure", "queue", "storage"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Minimal project readme with javac/java commands to compile all sources and run the broker or producer via Application.",
+      "tags": ["documentation", "entry-point", "build"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:TCPClient.java",
+      "type": "file",
+      "name": "TCPClient.java",
+      "filePath": "TCPClient.java",
+      "summary": "Standalone TCP echo client demo that sends length-prefixed strings to a local server for low-level socket experimentation.",
+      "tags": ["utility", "tcp", "demo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:TCPServer.java",
+      "type": "file",
+      "name": "TCPServer.java",
+      "filePath": "TCPServer.java",
+      "summary": "Standalone TCP echo server demo that reads length-prefixed frames and echoes them back for basic networking practice.",
+      "tags": ["utility", "tcp", "demo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Topic.java",
+      "type": "file",
+      "name": "Topic.java",
+      "filePath": "Topic.java",
+      "summary": "Topic aggregate holding a message queue instance and the list of consumer groups subscribed to that topic id.",
+      "tags": ["data-model", "topic", "messaging"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:Application.java:Application",
+      "type": "class",
+      "name": "Application",
+      "filePath": "Application.java",
+      "lineRange": [1, 38],
+      "summary": "Static launcher class that parses CLI mode and starts either Broker or Producer with optional port and topic arguments.",
+      "tags": ["entry-point", "cli"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:Application.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "Application.java",
+      "lineRange": [2, 37],
+      "summary": "Parses args for broker vs producer mode, constructs the appropriate server object, and blocks in its start method.",
+      "tags": ["entry-point", "cli"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:Broker.java:Broker",
+      "type": "class",
+      "name": "Broker",
+      "filePath": "Broker.java",
+      "lineRange": [12, 222],
+      "summary": "Stateful broker maintaining a map of topics and orchestrating producer registration threads plus consumer-group consumption pushes.",
+      "tags": ["service", "broker", "singleton"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:Broker.java:startBrokerServer",
+      "type": "function",
+      "name": "startBrokerServer",
+      "filePath": "Broker.java",
+      "lineRange": [31, 63],
+      "summary": "Binds the broker ServerSocket and loops on accept, framing each connection with Message read/write and dispatch to handleMessageToBroker.",
+      "tags": ["tcp", "server", "event-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Broker.java:handleMessageToBroker",
+      "type": "function",
+      "name": "handleMessageToBroker",
+      "filePath": "Broker.java",
+      "lineRange": [66, 81],
+      "summary": "Switchboard that routes incoming MessageType values to echo, producer registration, or consumer registration handlers.",
+      "tags": ["message-handler", "routing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Broker.java:processProducerRegisterMessage",
+      "type": "function",
+      "name": "processProducerRegisterMessage",
+      "filePath": "Broker.java",
+      "lineRange": [96, 135],
+      "summary": "Decodes a producer registration, ensures the topic exists, and spawns a thread that reads P_CM payloads into the topic queue.",
+      "tags": ["registration", "producer", "threading"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:Broker.java:processConsumerRegisterMessage",
+      "type": "function",
+      "name": "processConsumerRegisterMessage",
+      "filePath": "Broker.java",
+      "lineRange": [137, 160],
+      "summary": "Registers a consumer socket with its group, creates topic/group state if needed, and kicks off group consumption when new.",
+      "tags": ["registration", "consumer"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Broker.java:startConsumerGroupConsumption",
+      "type": "function",
+      "name": "startConsumerGroupConsumption",
+      "filePath": "Broker.java",
+      "lineRange": [162, 197],
+      "summary": "Background thread that peeks the queue at the group offset and pushes P_CM messages to ready consumers until acked.",
+      "tags": ["consumer-group", "delivery", "threading"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:Broker.java:getOrCreateConsumerGroup",
+      "type": "function",
+      "name": "getOrCreateConsumerGroup",
+      "filePath": "Broker.java",
+      "lineRange": [209, 220],
+      "summary": "Finds an existing ConsumerGroup on a topic or appends a new one, returning a CreateResult with the created flag.",
+      "tags": ["factory", "consumer-group"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:Consumer.java:Consumer",
+      "type": "class",
+      "name": "Consumer",
+      "filePath": "Consumer.java",
+      "lineRange": [12, 126],
+      "summary": "Consumer-side TCP server holding port, topic, and group identifiers and coordinating broker registration plus stdin-driven replies.",
+      "tags": ["consumer", "client", "tcp"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Consumer.java:sendRegistrationToBroker",
+      "type": "function",
+      "name": "sendRegistrationToBroker",
+      "filePath": "Consumer.java",
+      "lineRange": [35, 88],
+      "summary": "Opens a broker socket, sends a C_REG frame built from ConsumerRegisterRequest, and waits for the registration response.",
+      "tags": ["registration", "protocol"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:Consumer.java:startConsumerServer",
+      "type": "function",
+      "name": "startConsumerServer",
+      "filePath": "Consumer.java",
+      "lineRange": [90, 125],
+      "summary": "Listens on the consumer port, registers with the broker, then accepts broker connections and handles interactive consume/ack I/O.",
+      "tags": ["tcp", "server", "consumer"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:ConsumerGroup.java:ConsumerGroup",
+      "type": "class",
+      "name": "ConsumerGroup",
+      "filePath": "ConsumerGroup.java",
+      "lineRange": [7, 44],
+      "summary": "Groups consumers sharing an offset with a nested ConsumerConnection type tracking socket readiness for push delivery.",
+      "tags": ["data-model", "consumer-group", "nested-class"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:Message.java:Message",
+      "type": "class",
+      "name": "Message",
+      "filePath": "Message.java",
+      "lineRange": [6, 114],
+      "summary": "Immutable message DTO with static parsing and streaming utilities used by all TCP participants in the demo.",
+      "tags": ["protocol", "data-model", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Message.java:parseMessage",
+      "type": "function",
+      "name": "parseMessage",
+      "filePath": "Message.java",
+      "lineRange": [25, 58],
+      "summary": "Interprets a raw byte array by message type, splitting registration payloads from variable-length consume bodies.",
+      "tags": ["serialization", "protocol"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Message.java:readMessageFromStream",
+      "type": "function",
+      "name": "readMessageFromStream",
+      "filePath": "Message.java",
+      "lineRange": [77, 89],
+      "summary": "Reads a length-prefixed frame from a BufferedInputStream and returns an Optional parsed Message.",
+      "tags": ["io", "deserialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:Message.java:writeMessageToStream",
+      "type": "function",
+      "name": "writeMessageToStream",
+      "filePath": "Message.java",
+      "lineRange": [91, 108],
+      "summary": "Writes message length, type code, and payload bytes to a BufferedOutputStream with flush for peer delivery.",
+      "tags": ["io", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:Producer.java:Producer",
+      "type": "class",
+      "name": "Producer",
+      "filePath": "Producer.java",
+      "lineRange": [11, 79],
+      "summary": "Producer TCP server that registers its listen port with the broker then accepts broker back-connections for streaming user input.",
+      "tags": ["producer", "client", "tcp"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Producer.java:sendRegistrationToBroker",
+      "type": "function",
+      "name": "sendRegistrationToBroker",
+      "filePath": "Producer.java",
+      "lineRange": [21, 41],
+      "summary": "Connects to the broker, sends P_REG with serialized ProducerRegisterRequest bytes, and logs the registration ack.",
+      "tags": ["registration", "protocol"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Producer.java:startProducerServer",
+      "type": "function",
+      "name": "startProducerServer",
+      "filePath": "Producer.java",
+      "lineRange": [43, 78],
+      "summary": "Creates the local ServerSocket before broker registration, then loops on broker connections reading stdin into P_CM messages.",
+      "tags": ["tcp", "server", "producer"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "class",
+      "name": "ConsumerRegisterRequest",
+      "filePath": "protocol/ConsumerRegisterRequest.java",
+      "lineRange": [5, 39],
+      "summary": "Typed registration DTO with ByteBuffer encode/decode for port, topic id, and consumer group id fields.",
+      "tags": ["protocol", "serialization", "registration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "class",
+      "name": "ProducerRegisterRequest",
+      "filePath": "protocol/ProducerRegisterRequest.java",
+      "lineRange": [5, 33],
+      "summary": "Typed registration DTO with ByteBuffer encode/decode for producer port and topic id.",
+      "tags": ["protocol", "serialization", "registration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:Queue.java:Queue",
+      "type": "class",
+      "name": "Queue",
+      "filePath": "Queue.java",
+      "lineRange": [3, 99],
+      "summary": "Ring-buffer queue backing each topic, enforcing capacity from Constants and supporting offset-based peek for consumers.",
+      "tags": ["data-structure", "queue", "storage"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Queue.java:push",
+      "type": "function",
+      "name": "push",
+      "filePath": "Queue.java",
+      "lineRange": [25, 41],
+      "summary": "Appends a variable-length record into the ring buffer when space remains, updating head/tail metadata.",
+      "tags": ["queue", "write"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Queue.java:pop",
+      "type": "function",
+      "name": "pop",
+      "filePath": "Queue.java",
+      "lineRange": [43, 57],
+      "summary": "Removes and returns the oldest queued payload, advancing the tail pointer.",
+      "tags": ["queue", "read"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Queue.java:peekAt",
+      "type": "function",
+      "name": "peekAt",
+      "filePath": "Queue.java",
+      "lineRange": [59, 73],
+      "summary": "Returns a copy of the record at a logical offset without dequeuing, used for consumer-group delivery.",
+      "tags": ["queue", "read"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:Queue.java:debug",
+      "type": "function",
+      "name": "debug",
+      "filePath": "Queue.java",
+      "lineRange": [84, 98],
+      "summary": "Prints queue head/tail indices and decodes stored records for troubleshooting broker ingest.",
+      "tags": ["utility", "debug"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:TCPClient.java:TCPClient",
+      "type": "class",
+      "name": "TCPClient",
+      "filePath": "TCPClient.java",
+      "lineRange": [5, 37],
+      "summary": "Minimal interactive client for manual length-prefixed echo experiments separate from the message-queue protocol.",
+      "tags": ["demo", "tcp", "client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:TCPClient.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "TCPClient.java",
+      "lineRange": [6, 36],
+      "summary": "Reads console lines and writes framed payloads to localhost:9090, printing echoed responses.",
+      "tags": ["entry-point", "demo"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:TCPServer.java:TCPServer",
+      "type": "class",
+      "name": "TCPServer",
+      "filePath": "TCPServer.java",
+      "lineRange": [4, 34],
+      "summary": "Minimal echo server complement to TCPClient for raw socket learning.",
+      "tags": ["demo", "tcp", "server"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:TCPServer.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "TCPServer.java",
+      "lineRange": [5, 33],
+      "summary": "Accepts one client at a time on port 9090 and echoes length-prefixed string frames.",
+      "tags": ["entry-point", "demo"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:Topic.java:Topic",
+      "type": "class",
+      "name": "Topic",
+      "filePath": "Topic.java",
+      "lineRange": [4, 27],
+      "summary": "Topic container wiring a Queue instance with a growable list of ConsumerGroup subscribers.",
+      "tags": ["data-model", "topic"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:Broker.java",
+      "target": "file:common/Constants.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "file:common/CreateResult.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "file:protocol/ConsumerRegisterRequest.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "file:protocol/ProducerRegisterRequest.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:Consumer.java",
+      "target": "file:common/Constants.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:Consumer.java",
+      "target": "file:protocol/ConsumerRegisterRequest.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:Producer.java",
+      "target": "file:common/Constants.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:Producer.java",
+      "target": "file:protocol/ProducerRegisterRequest.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "file:common/Constants.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:Application.java",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:Producer.java",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md",
+      "target": "file:Producer.java",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:learning/idk/NESTED_CLASS.md",
+      "target": "class:ConsumerGroup.java:ConsumerGroup",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:Application.java",
+      "target": "class:Application.java:Application",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Application.java",
+      "target": "function:Application.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Application.java",
+      "target": "function:Application.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Application.java",
+      "target": "class:Application.java:Application",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "class:Broker.java:Broker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:startBrokerServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:handleMessageToBroker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:processProducerRegisterMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:processConsumerRegisterMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:startConsumerGroupConsumption",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:getOrCreateConsumerGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "class:Broker.java:Broker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:startBrokerServer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:handleMessageToBroker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:processProducerRegisterMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:processConsumerRegisterMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "function:Broker.java:startConsumerGroupConsumption",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Consumer.java",
+      "target": "class:Consumer.java:Consumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Consumer.java",
+      "target": "function:Consumer.java:sendRegistrationToBroker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Consumer.java",
+      "target": "function:Consumer.java:startConsumerServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Consumer.java",
+      "target": "class:Consumer.java:Consumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Consumer.java",
+      "target": "function:Consumer.java:startConsumerServer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ConsumerGroup.java",
+      "target": "class:ConsumerGroup.java:ConsumerGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ConsumerGroup.java",
+      "target": "class:ConsumerGroup.java:ConsumerGroup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Message.java",
+      "target": "class:Message.java:Message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Message.java",
+      "target": "function:Message.java:parseMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Message.java",
+      "target": "function:Message.java:readMessageFromStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Message.java",
+      "target": "function:Message.java:writeMessageToStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Message.java",
+      "target": "class:Message.java:Message",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Message.java",
+      "target": "function:Message.java:readMessageFromStream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Message.java",
+      "target": "function:Message.java:writeMessageToStream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Producer.java",
+      "target": "class:Producer.java:Producer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Producer.java",
+      "target": "function:Producer.java:sendRegistrationToBroker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Producer.java",
+      "target": "function:Producer.java:startProducerServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Producer.java",
+      "target": "class:Producer.java:Producer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Producer.java",
+      "target": "function:Producer.java:startProducerServer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:protocol/ConsumerRegisterRequest.java",
+      "target": "class:protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:protocol/ConsumerRegisterRequest.java",
+      "target": "class:protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:protocol/ProducerRegisterRequest.java",
+      "target": "class:protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:protocol/ProducerRegisterRequest.java",
+      "target": "class:protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "class:Queue.java:Queue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "function:Queue.java:push",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "function:Queue.java:pop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "function:Queue.java:peekAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "function:Queue.java:debug",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "class:Queue.java:Queue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "function:Queue.java:push",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "function:Queue.java:peekAt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Queue.java",
+      "target": "function:Queue.java:debug",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:TCPClient.java",
+      "target": "class:TCPClient.java:TCPClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:TCPClient.java",
+      "target": "function:TCPClient.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:TCPClient.java",
+      "target": "function:TCPClient.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:TCPServer.java",
+      "target": "class:TCPServer.java:TCPServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:TCPServer.java",
+      "target": "function:TCPServer.java:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:TCPServer.java",
+      "target": "function:TCPServer.java:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Topic.java",
+      "target": "class:Topic.java:Topic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:Topic.java",
+      "target": "class:Topic.java:Topic",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Application.java:main",
+      "target": "class:Broker.java:Broker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Application.java:main",
+      "target": "function:Broker.java:startBrokerServer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Application.java:main",
+      "target": "class:Producer.java:Producer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Application.java:main",
+      "target": "function:Producer.java:startProducerServer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:startBrokerServer",
+      "target": "function:Message.java:readMessageFromStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:startBrokerServer",
+      "target": "function:Message.java:writeMessageToStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:startBrokerServer",
+      "target": "function:Broker.java:handleMessageToBroker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:handleMessageToBroker",
+      "target": "function:Broker.java:processProducerRegisterMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:handleMessageToBroker",
+      "target": "function:Broker.java:processConsumerRegisterMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:processProducerRegisterMessage",
+      "target": "class:protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:processConsumerRegisterMessage",
+      "target": "class:protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:processConsumerRegisterMessage",
+      "target": "function:Broker.java:getOrCreateConsumerGroup",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:processConsumerRegisterMessage",
+      "target": "function:Broker.java:startConsumerGroupConsumption",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:getOrCreateConsumerGroup",
+      "target": "class:ConsumerGroup.java:ConsumerGroup",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:startConsumerGroupConsumption",
+      "target": "function:Message.java:writeMessageToStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:startConsumerGroupConsumption",
+      "target": "function:Message.java:readMessageFromStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Broker.java:startConsumerGroupConsumption",
+      "target": "function:Queue.java:peekAt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Consumer.java:startConsumerServer",
+      "target": "function:Consumer.java:sendRegistrationToBroker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Consumer.java:sendRegistrationToBroker",
+      "target": "class:protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Consumer.java:sendRegistrationToBroker",
+      "target": "function:Message.java:writeMessageToStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Consumer.java:sendRegistrationToBroker",
+      "target": "function:Message.java:readMessageFromStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Producer.java:startProducerServer",
+      "target": "function:Producer.java:sendRegistrationToBroker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Producer.java:sendRegistrationToBroker",
+      "target": "class:protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Producer.java:sendRegistrationToBroker",
+      "target": "function:Message.java:writeMessageToStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Producer.java:sendRegistrationToBroker",
+      "target": "function:Message.java:readMessageFromStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Producer.java:startProducerServer",
+      "target": "function:Message.java:writeMessageToStream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:Message.java:readMessageFromStream",
+      "target": "function:Message.java:parseMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:Topic.java:Topic",
+      "target": "class:Queue.java:Queue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "file:Message.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "file:Topic.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "file:ConsumerGroup.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:Broker.java",
+      "target": "file:MessageType.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:Topic.java",
+      "target": "file:Queue.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:Consumer.java",
+      "target": "file:Message.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:Producer.java",
+      "target": "file:Message.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:Message.java",
+      "target": "file:MessageType.java",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

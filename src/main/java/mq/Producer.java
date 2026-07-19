@@ -1,4 +1,4 @@
-import common.Constants;
+package mq;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.net.InetAddress;
@@ -6,7 +6,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Optional;
 import java.util.Scanner;
-import protocol.ProducerRegisterRequest;
+
+import mq.common.Constants;
+import mq.protocol.ProducerRegisterRequest;
 
 public class Producer {
 
@@ -75,6 +77,7 @@ public class Producer {
             }
         }catch(Exception e){
             System.out.println("Something wrong when starting producer server");
+            e.printStackTrace();
         }
     }
 }

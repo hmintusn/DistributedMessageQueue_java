@@ -1,0 +1,244 @@
+{
+  "scriptCompleted": true,
+  "directoryGroups": {
+    ".understand-anything": [
+      "file:.understand-anything/.understandignore"
+    ],
+    "root": [
+      "file:Application.java",
+      "file:Broker.java",
+      "file:Consumer.java",
+      "file:ConsumerGroup.java",
+      "file:Message.java",
+      "file:MessageType.java",
+      "file:Producer.java",
+      "file:Queue.java",
+      "document:README.md",
+      "file:TCPClient.java",
+      "file:TCPServer.java",
+      "file:Topic.java"
+    ],
+    "common": [
+      "file:common/Constants.java",
+      "file:common/CreateResult.java"
+    ],
+    "learning": [
+      "document:learning/idk/NESTED_CLASS.md",
+      "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md"
+    ],
+    "protocol": [
+      "file:protocol/ConsumerRegisterRequest.java",
+      "file:protocol/ProducerRegisterRequest.java"
+    ]
+  },
+  "nodeTypeGroups": {
+    "file": [
+      "file:.understand-anything/.understandignore",
+      "file:Application.java",
+      "file:Broker.java",
+      "file:common/Constants.java",
+      "file:common/CreateResult.java",
+      "file:Consumer.java",
+      "file:ConsumerGroup.java",
+      "file:Message.java",
+      "file:MessageType.java",
+      "file:Producer.java",
+      "file:protocol/ConsumerRegisterRequest.java",
+      "file:protocol/ProducerRegisterRequest.java",
+      "file:Queue.java",
+      "file:TCPClient.java",
+      "file:TCPServer.java",
+      "file:Topic.java"
+    ],
+    "document": [
+      "document:learning/idk/NESTED_CLASS.md",
+      "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md",
+      "document:README.md"
+    ]
+  },
+  "crossCategoryEdges": [
+    {
+      "fromType": "file",
+      "toType": "file",
+      "edgeType": "imports",
+      "count": 9
+    },
+    {
+      "fromType": "document",
+      "toType": "file",
+      "edgeType": "documents",
+      "count": 3
+    },
+    {
+      "fromType": "file",
+      "toType": "file",
+      "edgeType": "depends_on",
+      "count": 8
+    }
+  ],
+  "interGroupImports": [
+    {
+      "from": "root",
+      "to": "common",
+      "count": 5
+    },
+    {
+      "from": "root",
+      "to": "protocol",
+      "count": 4
+    }
+  ],
+  "intraGroupDensity": {
+    ".understand-anything": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    },
+    "root": {
+      "internalEdges": 0,
+      "totalEdges": 9,
+      "density": 0
+    },
+    "common": {
+      "internalEdges": 0,
+      "totalEdges": 5,
+      "density": 0
+    },
+    "learning": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    },
+    "protocol": {
+      "internalEdges": 0,
+      "totalEdges": 4,
+      "density": 0
+    }
+  },
+  "patternMatches": {
+    ".understand-anything": "service",
+    "root": "entry",
+    "common": "utility",
+    "learning": "documentation",
+    "protocol": "types"
+  },
+  "deploymentTopology": {
+    "hasDockerfile": false,
+    "hasCompose": false,
+    "hasK8s": false,
+    "hasTerraform": false,
+    "hasCI": false,
+    "infraFiles": []
+  },
+  "dataPipeline": {
+    "schemaFiles": [],
+    "migrationFiles": [],
+    "dataModelFiles": [
+      "common/CreateResult.java",
+      "ConsumerGroup.java",
+      "Queue.java",
+      "Topic.java"
+    ],
+    "apiHandlerFiles": [
+      "Broker.java"
+    ]
+  },
+  "docCoverage": {
+    "groupsWithDocs": 2,
+    "totalGroups": 5,
+    "coverageRatio": 0.4,
+    "undocumentedGroups": [
+      ".understand-anything",
+      "common",
+      "protocol"
+    ]
+  },
+  "dependencyDirection": [
+    {
+      "dependent": "root",
+      "dependsOn": "common"
+    },
+    {
+      "dependent": "root",
+      "dependsOn": "protocol"
+    }
+  ],
+  "fileStats": {
+    "totalFileNodes": 19,
+    "filesPerGroup": {
+      ".understand-anything": 1,
+      "root": 12,
+      "common": 2,
+      "learning": 2,
+      "protocol": 2
+    },
+    "nodeTypeCounts": {
+      "file": 16,
+      "document": 3
+    }
+  },
+  "fileFanIn": {
+    "file:.understand-anything/.understandignore": 0,
+    "file:Application.java": 0,
+    "file:Broker.java": 0,
+    "file:common/Constants.java": 4,
+    "file:common/CreateResult.java": 1,
+    "file:Consumer.java": 0,
+    "file:ConsumerGroup.java": 0,
+    "document:learning/idk/NESTED_CLASS.md": 0,
+    "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md": 0,
+    "file:Message.java": 0,
+    "file:MessageType.java": 0,
+    "file:Producer.java": 0,
+    "file:protocol/ConsumerRegisterRequest.java": 2,
+    "file:protocol/ProducerRegisterRequest.java": 2,
+    "file:Queue.java": 0,
+    "document:README.md": 0,
+    "file:TCPClient.java": 0,
+    "file:TCPServer.java": 0,
+    "file:Topic.java": 0
+  },
+  "fileFanOut": {
+    "file:.understand-anything/.understandignore": 0,
+    "file:Application.java": 0,
+    "file:Broker.java": 4,
+    "file:common/Constants.java": 0,
+    "file:common/CreateResult.java": 0,
+    "file:Consumer.java": 2,
+    "file:ConsumerGroup.java": 0,
+    "document:learning/idk/NESTED_CLASS.md": 0,
+    "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md": 0,
+    "file:Message.java": 0,
+    "file:MessageType.java": 0,
+    "file:Producer.java": 2,
+    "file:protocol/ConsumerRegisterRequest.java": 0,
+    "file:protocol/ProducerRegisterRequest.java": 0,
+    "file:Queue.java": 1,
+    "document:README.md": 0,
+    "file:TCPClient.java": 0,
+    "file:TCPServer.java": 0,
+    "file:Topic.java": 0
+  },
+  "commonPrefix": "",
+  "fileToGroup": {
+    "file:.understand-anything/.understandignore": ".understand-anything",
+    "file:Application.java": "root",
+    "file:Broker.java": "root",
+    "file:common/Constants.java": "common",
+    "file:common/CreateResult.java": "common",
+    "file:Consumer.java": "root",
+    "file:ConsumerGroup.java": "root",
+    "document:learning/idk/NESTED_CLASS.md": "learning",
+    "document:learning/issues/WINDOWS_VS_LINUX_TCP_ISSUE.md": "learning",
+    "file:Message.java": "root",
+    "file:MessageType.java": "root",
+    "file:Producer.java": "root",
+    "file:protocol/ConsumerRegisterRequest.java": "protocol",
+    "file:protocol/ProducerRegisterRequest.java": "protocol",
+    "file:Queue.java": "root",
+    "document:README.md": "root",
+    "file:TCPClient.java": "root",
+    "file:TCPServer.java": "root",
+    "file:Topic.java": "root"
+  }
+}

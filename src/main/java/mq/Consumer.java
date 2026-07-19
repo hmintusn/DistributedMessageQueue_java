@@ -1,5 +1,8 @@
+package mq;
 
-import common.Constants;
+import mq.common.Constants;
+import mq.protocol.ConsumerRegisterRequest;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.net.InetAddress;
@@ -7,7 +10,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
-import protocol.ConsumerRegisterRequest;
 
 public class Consumer {
     private int port;

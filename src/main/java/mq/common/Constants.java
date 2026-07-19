@@ -1,4 +1,4 @@
-package common;
+package mq.common;
 
 public class Constants {
     // Broker

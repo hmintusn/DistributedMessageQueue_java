@@ -1,0 +1,14 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 0,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "Single-batch merge: 51 nodes and 106 edges unchanged from batch-1.json; merge script reported no ID, type, or complexity corrections.",
+    "All 9 non-empty import-map relationships are present as imports edges (file: source → file: target, weight 0.7); import recovery added 0 because batch-1 already included them.",
+    "Validated: no nodes missing id, no dangling edges, complexity values all simple/moderate/complex, node types limited to file/document/class/function.",
+    "No cross-batch gaps apply (one logical batch only)."
+  ]
+}
