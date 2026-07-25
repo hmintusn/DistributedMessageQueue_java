@@ -5,23 +5,14 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class Message {
     private final MessageType type;
     private final byte[] data;
-    
-    public Message(MessageType type, byte[] data) {
-        this.type = type;
-        this.data = data;
-    }
-    
-    public MessageType getType() {
-        return type;
-    }
-
-    public byte[] getData() {
-        return data;
-    }
-    
     
     // parse: bytes -> Message
     private static Optional<Message> parseMessage(byte[] streamMessage){

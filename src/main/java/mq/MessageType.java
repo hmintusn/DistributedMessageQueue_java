@@ -1,4 +1,8 @@
 package mq;
+
+import lombok.Getter;
+
+@Getter
 public enum MessageType {
     // Explicit mapping between byte and enum
     //  → prevents breaking protocol when enum order changes.
@@ -16,10 +20,6 @@ public enum MessageType {
 
     MessageType(byte code) {
         this.code = code;
-    }
-
-    public byte getCode() {
-        return code;
     }
 
     public static MessageType fromByte(byte b) {

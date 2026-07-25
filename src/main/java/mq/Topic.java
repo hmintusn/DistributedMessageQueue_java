@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
+import lombok.Getter;
+
+@Getter
 public class Topic {
     private int topicId;
     private Queue messageQueue;
@@ -15,22 +18,6 @@ public class Topic {
         this.topicId = topicId;
         this.messageQueue = new Queue();
         this.consumerGroups = new ArrayList<>();
-    }
-
-    public int getTopicId() {
-        return topicId;
-    }
-
-    public Queue getMessageQueue() {
-        return messageQueue;
-    }
-
-    public ReentrantLock getLock() {
-        return lock;
-    }
-
-    public List<ConsumerGroup> getConsumerGroups() { 
-        return consumerGroups;
     }
 
 }

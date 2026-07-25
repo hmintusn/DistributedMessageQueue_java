@@ -7,18 +7,16 @@ import java.net.Socket;
 import java.util.Optional;
 import java.util.Scanner;
 
+import lombok.AllArgsConstructor;
 import mq.common.Constants;
 import mq.protocol.ProducerRegisterRequest;
 
+@AllArgsConstructor
 public class Producer {
 
     private int port;
     private int topicId;
 
-    public Producer(int port, int topicId) {
-        this.port = port;
-        this.topicId = topicId;
-    }
 
     private void sendRegistrationToBroker(){
         try{
