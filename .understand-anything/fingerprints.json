@@ -1,0 +1,1330 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "e7a2b2ded97e4c8850bd296ce2d5ba48b94cc94a",
+  "generatedAt": "2026-07-28T05:33:09.578Z",
+  "files": {
+    ".gitattributes": {
+      "filePath": ".gitattributes",
+      "contentHash": "168f60b28bfc7530b82e44d174372ebda4089dd1f1acb9a564b9532bc8aa49b4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "360a9668654395ec737c60d3a4b40df72ec822246fe3225cc22614d6f72044cb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "build.gradle": {
+      "filePath": "build.gradle",
+      "contentHash": "779a59037e1a0b05b64476c67910d2cfa4bc64686babd48fadef108a5d298ddd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 30,
+      "hasStructuralAnalysis": false
+    },
+    "gradle.properties": {
+      "filePath": "gradle.properties",
+      "contentHash": "341bc1ec0794a29ab7d3c5f82e5aa5ec99022942735d3c2f3a355c06add28d87",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": false
+    },
+    "gradle/libs.versions.toml": {
+      "filePath": "gradle/libs.versions.toml",
+      "contentHash": "ed156ee3cf9ef3bfbdcb4ccca1cea4315692397d16344f696b1f295987d9ed87",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": true
+    },
+    "gradlew": {
+      "filePath": "gradlew",
+      "contentHash": "d8231d345ab33433ab7b2c0720d5beb416c8d5c6789dbc01ad122b63bc2cae0d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 250,
+      "hasStructuralAnalysis": false
+    },
+    "gradlew.bat": {
+      "filePath": "gradlew.bat",
+      "contentHash": "bdecf875b6868cbcbd36a1f85eedf0832f358ff28092c5797ed645f7edce77d9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 93,
+      "hasStructuralAnalysis": false
+    },
+    "settings.gradle": {
+      "filePath": "settings.gradle",
+      "contentHash": "774579b157d18857927c6848303e52fb0a0fa88c4c489ed6203619bf1f4d384d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": false
+    },
+    "src/main/java/mq/Application.java": {
+      "filePath": "src/main/java/mq/Application.java",
+      "contentHash": "e7bf593c15898c1c0feb59362aab31a8dde1d5495de9ed0184390b201b8f55f6",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 53
+        }
+      ],
+      "classes": [
+        {
+          "name": "Application",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 55
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "main",
+        "Application"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/Broker.java": {
+      "filePath": "src/main/java/mq/Broker.java",
+      "contentHash": "e2ad2d82260dd00af31ac3940958952dc20a096f179415ab79aa7c621428f55b",
+      "functions": [
+        {
+          "name": "Broker",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "startBrokerServer",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "handleMessageToBroker",
+          "params": [
+            "message"
+          ],
+          "returnType": "Optional<Message>",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "processEcho",
+          "params": [
+            "echoData"
+          ],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "handleProducerConsumeMessage",
+          "params": [
+            "consumeData",
+            "topicId"
+          ],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "processProducerRegisterMessage",
+          "params": [
+            "producerRegistererRawData"
+          ],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "processConsumerRegisterMessage",
+          "params": [
+            "consumerRegisterRawData"
+          ],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "startConsumerGroupConsumption",
+          "params": [
+            "topicId",
+            "groupId"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 47
+        },
+        {
+          "name": "getOrCreateTopic",
+          "params": [
+            "topicId"
+          ],
+          "returnType": "Topic",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "stopAndPop",
+          "params": [
+            "topic"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 31
+        },
+        {
+          "name": "getOrCreateConsumerGroup",
+          "params": [
+            "groupId",
+            "topicId"
+          ],
+          "returnType": "CreateResult<ConsumerGroup>",
+          "exported": false,
+          "lineCount": 19
+        }
+      ],
+      "classes": [
+        {
+          "name": "Broker",
+          "methods": [
+            "Broker",
+            "startBrokerServer",
+            "handleMessageToBroker",
+            "processEcho",
+            "handleProducerConsumeMessage",
+            "processProducerRegisterMessage",
+            "processConsumerRegisterMessage",
+            "startConsumerGroupConsumption",
+            "getOrCreateTopic",
+            "stopAndPop",
+            "getOrCreateConsumerGroup"
+          ],
+          "properties": [
+            "idToTopic"
+          ],
+          "exported": true,
+          "lineCount": 275
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.BufferedInputStream",
+          "specifiers": [
+            "BufferedInputStream"
+          ]
+        },
+        {
+          "source": "java.io.BufferedOutputStream",
+          "specifiers": [
+            "BufferedOutputStream"
+          ]
+        },
+        {
+          "source": "java.net.InetAddress",
+          "specifiers": [
+            "InetAddress"
+          ]
+        },
+        {
+          "source": "java.net.ServerSocket",
+          "specifiers": [
+            "ServerSocket"
+          ]
+        },
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "java.util.HashMap",
+          "specifiers": [
+            "HashMap"
+          ]
+        },
+        {
+          "source": "java.util.Map",
+          "specifiers": [
+            "Map"
+          ]
+        },
+        {
+          "source": "java.util.Optional",
+          "specifiers": [
+            "Optional"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.TimeUnit",
+          "specifiers": [
+            "TimeUnit"
+          ]
+        },
+        {
+          "source": "mq.common.Constants",
+          "specifiers": [
+            "Constants"
+          ]
+        },
+        {
+          "source": "mq.common.CreateResult",
+          "specifiers": [
+            "CreateResult"
+          ]
+        },
+        {
+          "source": "mq.protocol.ConsumerRegisterRequest",
+          "specifiers": [
+            "ConsumerRegisterRequest"
+          ]
+        },
+        {
+          "source": "mq.protocol.ProducerRegisterRequest",
+          "specifiers": [
+            "ProducerRegisterRequest"
+          ]
+        }
+      ],
+      "exports": [
+        "Broker",
+        "startBrokerServer",
+        "handleMessageToBroker",
+        "processEcho",
+        "handleProducerConsumeMessage",
+        "processProducerRegisterMessage",
+        "processConsumerRegisterMessage",
+        "startConsumerGroupConsumption",
+        "Broker"
+      ],
+      "totalLines": 292,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/Consumer.java": {
+      "filePath": "src/main/java/mq/Consumer.java",
+      "contentHash": "ce72b47fcbc8f7c6118eea03b1bc8b1d3a2035acec4ddac99a1ae74548851976",
+      "functions": [
+        {
+          "name": "Consumer",
+          "params": [
+            "port",
+            "topicId",
+            "groupId"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "getGroupId",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getPort",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getTopicId",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "startConsumerServer",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "sendRegistrationToBroker",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 21
+        }
+      ],
+      "classes": [
+        {
+          "name": "Consumer",
+          "methods": [
+            "Consumer",
+            "getGroupId",
+            "getPort",
+            "getTopicId",
+            "startConsumerServer",
+            "sendRegistrationToBroker"
+          ],
+          "properties": [
+            "port",
+            "topicId",
+            "groupId"
+          ],
+          "exported": true,
+          "lineCount": 81
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.BufferedInputStream",
+          "specifiers": [
+            "BufferedInputStream"
+          ]
+        },
+        {
+          "source": "java.io.BufferedOutputStream",
+          "specifiers": [
+            "BufferedOutputStream"
+          ]
+        },
+        {
+          "source": "java.net.InetAddress",
+          "specifiers": [
+            "InetAddress"
+          ]
+        },
+        {
+          "source": "java.net.ServerSocket",
+          "specifiers": [
+            "ServerSocket"
+          ]
+        },
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "java.util.Optional",
+          "specifiers": [
+            "Optional"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.TimeUnit",
+          "specifiers": [
+            "TimeUnit"
+          ]
+        },
+        {
+          "source": "mq.common.Constants",
+          "specifiers": [
+            "Constants"
+          ]
+        },
+        {
+          "source": "mq.protocol.ConsumerRegisterRequest",
+          "specifiers": [
+            "ConsumerRegisterRequest"
+          ]
+        }
+      ],
+      "exports": [
+        "Consumer",
+        "getGroupId",
+        "getPort",
+        "getTopicId",
+        "startConsumerServer",
+        "Consumer"
+      ],
+      "totalLines": 95,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/ConsumerGroup.java": {
+      "filePath": "src/main/java/mq/ConsumerGroup.java",
+      "contentHash": "8e7ecdc1d124662ed7d910e1c5e7271e4bbc2263653f43c9d3e73b7379f6d7b7",
+      "functions": [
+        {
+          "name": "ConsumerGroup",
+          "params": [
+            "groupId",
+            "offset"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "incOffset",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "addConsumer",
+          "params": [
+            "socket"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConsumerGroup",
+          "methods": [
+            "ConsumerGroup",
+            "incOffset",
+            "addConsumer"
+          ],
+          "properties": [
+            "groupId",
+            "offset",
+            "lock",
+            "consumers"
+          ],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.locks.ReentrantLock",
+          "specifiers": [
+            "ReentrantLock"
+          ]
+        },
+        {
+          "source": "lombok.AllArgsConstructor",
+          "specifiers": [
+            "AllArgsConstructor"
+          ]
+        },
+        {
+          "source": "lombok.Getter",
+          "specifiers": [
+            "Getter"
+          ]
+        },
+        {
+          "source": "lombok.Setter",
+          "specifiers": [
+            "Setter"
+          ]
+        }
+      ],
+      "exports": [
+        "ConsumerGroup",
+        "incOffset",
+        "addConsumer",
+        "ConsumerGroup"
+      ],
+      "totalLines": 43,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/Message.java": {
+      "filePath": "src/main/java/mq/Message.java",
+      "contentHash": "46e9176417df2766ea4c1ea0ccb9aeafda7ea496d7d73259a0a9728c8c5dcf92",
+      "functions": [
+        {
+          "name": "parseMessage",
+          "params": [
+            "streamMessage"
+          ],
+          "returnType": "Optional<Message>",
+          "exported": false,
+          "lineCount": 34
+        },
+        {
+          "name": "readFromStream",
+          "params": [
+            "bis"
+          ],
+          "returnType": "byte[]",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "readMessageFromStream",
+          "params": [
+            "bis"
+          ],
+          "returnType": "Optional<Message>",
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "writeMessageToStream",
+          "params": [
+            "bos",
+            "message"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "Message",
+          "methods": [
+            "parseMessage",
+            "readFromStream",
+            "readMessageFromStream",
+            "writeMessageToStream",
+            "toString"
+          ],
+          "properties": [
+            "type",
+            "data"
+          ],
+          "exported": true,
+          "lineCount": 109
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.BufferedInputStream",
+          "specifiers": [
+            "BufferedInputStream"
+          ]
+        },
+        {
+          "source": "java.io.BufferedOutputStream",
+          "specifiers": [
+            "BufferedOutputStream"
+          ]
+        },
+        {
+          "source": "java.io.IOException",
+          "specifiers": [
+            "IOException"
+          ]
+        },
+        {
+          "source": "java.util.Arrays",
+          "specifiers": [
+            "Arrays"
+          ]
+        },
+        {
+          "source": "java.util.Optional",
+          "specifiers": [
+            "Optional"
+          ]
+        },
+        {
+          "source": "lombok.AllArgsConstructor",
+          "specifiers": [
+            "AllArgsConstructor"
+          ]
+        },
+        {
+          "source": "lombok.Getter",
+          "specifiers": [
+            "Getter"
+          ]
+        }
+      ],
+      "exports": [
+        "readMessageFromStream",
+        "writeMessageToStream",
+        "toString",
+        "Message"
+      ],
+      "totalLines": 119,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/MessageType.java": {
+      "filePath": "src/main/java/mq/MessageType.java",
+      "contentHash": "b5566993a1e1d6aa260f3b3b21695723609a8aaaf4499e081b045be979d3248d",
+      "functions": [
+        {
+          "name": "MessageType",
+          "params": [
+            "code"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "fromByte",
+          "params": [
+            "b"
+          ],
+          "returnType": "MessageType",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "MessageType",
+          "methods": [
+            "MessageType",
+            "fromByte"
+          ],
+          "properties": [
+            "code"
+          ],
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "imports": [
+        {
+          "source": "lombok.Getter",
+          "specifiers": [
+            "Getter"
+          ]
+        }
+      ],
+      "exports": [
+        "fromByte",
+        "MessageType"
+      ],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/Producer.java": {
+      "filePath": "src/main/java/mq/Producer.java",
+      "contentHash": "06916921fa1af98035a61b1f041e2afabf83a1d1c9a357854bd40e42e395d013",
+      "functions": [
+        {
+          "name": "sendRegistrationToBroker",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 21
+        },
+        {
+          "name": "startProducerServer",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "classes": [
+        {
+          "name": "Producer",
+          "methods": [
+            "sendRegistrationToBroker",
+            "startProducerServer"
+          ],
+          "properties": [
+            "port",
+            "topicId"
+          ],
+          "exported": true,
+          "lineCount": 68
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io.BufferedInputStream",
+          "specifiers": [
+            "BufferedInputStream"
+          ]
+        },
+        {
+          "source": "java.io.BufferedOutputStream",
+          "specifiers": [
+            "BufferedOutputStream"
+          ]
+        },
+        {
+          "source": "java.net.InetAddress",
+          "specifiers": [
+            "InetAddress"
+          ]
+        },
+        {
+          "source": "java.net.ServerSocket",
+          "specifiers": [
+            "ServerSocket"
+          ]
+        },
+        {
+          "source": "java.net.Socket",
+          "specifiers": [
+            "Socket"
+          ]
+        },
+        {
+          "source": "java.util.Optional",
+          "specifiers": [
+            "Optional"
+          ]
+        },
+        {
+          "source": "java.util.Scanner",
+          "specifiers": [
+            "Scanner"
+          ]
+        },
+        {
+          "source": "lombok.AllArgsConstructor",
+          "specifiers": [
+            "AllArgsConstructor"
+          ]
+        },
+        {
+          "source": "mq.common.Constants",
+          "specifiers": [
+            "Constants"
+          ]
+        },
+        {
+          "source": "mq.protocol.ProducerRegisterRequest",
+          "specifiers": [
+            "ProducerRegisterRequest"
+          ]
+        }
+      ],
+      "exports": [
+        "startProducerServer",
+        "Producer"
+      ],
+      "totalLines": 82,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/Queue.java": {
+      "filePath": "src/main/java/mq/Queue.java",
+      "contentHash": "a15b89a7026519958a5916ba326a66a45a831da82b1ca95bbbc5fea68576ab39",
+      "functions": [
+        {
+          "name": "Queue",
+          "params": [],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "push",
+          "params": [
+            "data"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "pop",
+          "params": [],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "peekAt",
+          "params": [
+            "offset"
+          ],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "isEmpty",
+          "params": [],
+          "returnType": "boolean",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "isFull",
+          "params": [],
+          "returnType": "boolean",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "debug",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [
+        {
+          "name": "Queue",
+          "methods": [
+            "Queue",
+            "push",
+            "pop",
+            "peekAt",
+            "isEmpty",
+            "isFull",
+            "debug"
+          ],
+          "properties": [
+            "TOTAL_SIZE",
+            "buffer",
+            "sizes",
+            "head",
+            "tail"
+          ],
+          "exported": true,
+          "lineCount": 97
+        }
+      ],
+      "imports": [
+        {
+          "source": "mq.common.Constants",
+          "specifiers": [
+            "Constants"
+          ]
+        }
+      ],
+      "exports": [
+        "Queue",
+        "push",
+        "pop",
+        "peekAt",
+        "debug",
+        "Queue"
+      ],
+      "totalLines": 101,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/TCPClient.java": {
+      "filePath": "src/main/java/mq/TCPClient.java",
+      "contentHash": "3656d89be1b2f027a3b49d9ddc2a1d819af37eac5f8cb0c98b912678137c755f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "classes": [
+        {
+          "name": "TCPClient",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 33
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.net",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.util.Scanner",
+          "specifiers": [
+            "Scanner"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "TCPClient"
+      ],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/TCPServer.java": {
+      "filePath": "src/main/java/mq/TCPServer.java",
+      "contentHash": "3500109d2d712a07b6543fa723ddbf9a576f049aa67b3a1db00bdacc8cf5a224",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "args"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "classes": [
+        {
+          "name": "TCPServer",
+          "methods": [
+            "main"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.io",
+          "specifiers": [
+            "*"
+          ]
+        },
+        {
+          "source": "java.net",
+          "specifiers": [
+            "*"
+          ]
+        }
+      ],
+      "exports": [
+        "main",
+        "TCPServer"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/Topic.java": {
+      "filePath": "src/main/java/mq/Topic.java",
+      "contentHash": "d2a26965d691f4b2cb20b8fb1c0a7cdddc5dcda6bd8e740053390220ea02a4a4",
+      "functions": [
+        {
+          "name": "Topic",
+          "params": [
+            "topicId"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "Topic",
+          "methods": [
+            "Topic"
+          ],
+          "properties": [
+            "topicId",
+            "messageQueue",
+            "lock",
+            "consumerGroups"
+          ],
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.util.ArrayList",
+          "specifiers": [
+            "ArrayList"
+          ]
+        },
+        {
+          "source": "java.util.List",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": "java.util.concurrent.locks.ReentrantLock",
+          "specifiers": [
+            "ReentrantLock"
+          ]
+        },
+        {
+          "source": "lombok.Getter",
+          "specifiers": [
+            "Getter"
+          ]
+        }
+      ],
+      "exports": [
+        "Topic",
+        "Topic"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/common/Constants.java": {
+      "filePath": "src/main/java/mq/common/Constants.java",
+      "contentHash": "d8055ddc7f6db8434905e1be5fd8f2a175fb18817847ed648aea53afbf67d838",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Constants",
+          "methods": [],
+          "properties": [
+            "BROKER_PORT",
+            "MAX_MESSAGE_SIZE",
+            "QUEUE_CAPACITY"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "BROKER_PORT",
+        "MAX_MESSAGE_SIZE",
+        "QUEUE_CAPACITY",
+        "Constants"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/common/CreateResult.java": {
+      "filePath": "src/main/java/mq/common/CreateResult.java",
+      "contentHash": "466486c91f0a0d6b007ef4d2880257bfab0e8cd1d9a9c3580b121be7ae8b7460",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CreateResult",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "CreateResult"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/protocol/ConsumerRegisterRequest.java": {
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "contentHash": "d271faafed30ce6305bf6728c18a66cb82c7773d994234ec27d12ec1afaf6c46",
+      "functions": [
+        {
+          "name": "ConsumerRegisterRequest",
+          "params": [
+            "port",
+            "topicId",
+            "consumerGroupId"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "toByte",
+          "params": [],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "fromByte",
+          "params": [
+            "data"
+          ],
+          "returnType": "ConsumerRegisterRequest",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "getPort",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getTopicId",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getConsumerGroupId",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConsumerRegisterRequest",
+          "methods": [
+            "ConsumerRegisterRequest",
+            "toByte",
+            "fromByte",
+            "getPort",
+            "getTopicId",
+            "getConsumerGroupId"
+          ],
+          "properties": [
+            "port",
+            "topicId",
+            "consumerGroupId"
+          ],
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.nio.ByteBuffer",
+          "specifiers": [
+            "ByteBuffer"
+          ]
+        }
+      ],
+      "exports": [
+        "ConsumerRegisterRequest",
+        "toByte",
+        "fromByte",
+        "getPort",
+        "getTopicId",
+        "getConsumerGroupId",
+        "ConsumerRegisterRequest"
+      ],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "src/main/java/mq/protocol/ProducerRegisterRequest.java": {
+      "filePath": "src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "contentHash": "49b5a43dcafdfe280dadacc74903e41f662b30c28893d45513eddadb152859e0",
+      "functions": [
+        {
+          "name": "ProducerRegisterRequest",
+          "params": [
+            "port",
+            "topicId"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "toByte",
+          "params": [],
+          "returnType": "byte[]",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "fromByte",
+          "params": [
+            "data"
+          ],
+          "returnType": "ProducerRegisterRequest",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "getPort",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getTopicId",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProducerRegisterRequest",
+          "methods": [
+            "ProducerRegisterRequest",
+            "toByte",
+            "fromByte",
+            "getPort",
+            "getTopicId"
+          ],
+          "properties": [
+            "port",
+            "topicId"
+          ],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "java.nio.ByteBuffer",
+          "specifiers": [
+            "ByteBuffer"
+          ]
+        }
+      ],
+      "exports": [
+        "ProducerRegisterRequest",
+        "toByte",
+        "fromByte",
+        "getPort",
+        "getTopicId",
+        "ProducerRegisterRequest"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

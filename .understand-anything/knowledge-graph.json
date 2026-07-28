@@ -1,0 +1,1899 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "Kafka-java",
+    "languages": [
+      "java",
+      "markdown",
+      "gradle",
+      "shell"
+    ],
+    "frameworks": [
+      "junit",
+      "lombok",
+      "gradle"
+    ],
+    "description": "A Java distributed message queue with broker, producer, and consumer modes over TCP, inspired by Kafka-style topics and consumer groups.",
+    "analyzedAt": "2026-07-28T05:32:59.051Z",
+    "gitCommitHash": "e7a2b2ded97e4c8850bd296ce2d5ba48b94cc94a"
+  },
+  "nodes": [
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Runbook for compiling and launching broker, producer, and consumer modes via Gradle.",
+      "tags": [
+        "docs",
+        "runbook",
+        "entry-docs"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:build.gradle",
+      "type": "config",
+      "name": "build.gradle",
+      "filePath": "build.gradle",
+      "summary": "Gradle build defining Java app entrypoint mq.Application with Lombok and JUnit.",
+      "tags": [
+        "gradle",
+        "build",
+        "configures"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:gradle.properties",
+      "type": "config",
+      "name": "gradle.properties",
+      "filePath": "gradle.properties",
+      "summary": "Gradle properties for the project build.",
+      "tags": [
+        "gradle",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gradlew.bat",
+      "type": "file",
+      "name": "gradlew.bat",
+      "filePath": "gradlew.bat",
+      "summary": "Windows Gradle wrapper launcher script.",
+      "tags": [
+        "gradle",
+        "script",
+        "windows"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:settings.gradle",
+      "type": "config",
+      "name": "settings.gradle",
+      "filePath": "settings.gradle",
+      "summary": "Gradle settings naming the root project Kafka-java.",
+      "tags": [
+        "gradle",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.gitattributes",
+      "type": "file",
+      "name": ".gitattributes",
+      "filePath": ".gitattributes",
+      "summary": "Git attribute rules for line endings and file handling.",
+      "tags": [
+        "git",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:gradle/libs.versions.toml",
+      "type": "config",
+      "name": "libs.versions.toml",
+      "filePath": "gradle/libs.versions.toml",
+      "summary": "Gradle version catalog placeholder.",
+      "tags": [
+        "gradle",
+        "versions"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gradlew",
+      "type": "file",
+      "name": "gradlew",
+      "filePath": "gradlew",
+      "summary": "Unix Gradle wrapper script used to run broker/producer/consumer.",
+      "tags": [
+        "gradle",
+        "script",
+        "launcher"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/main/java/mq/Application.java",
+      "type": "file",
+      "name": "Application.java",
+      "filePath": "src/main/java/mq/Application.java",
+      "summary": "CLI entrypoint that starts broker, producer, or consumer based on args.",
+      "tags": [
+        "entrypoint",
+        "cli",
+        "bootstrap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/Application.java:Application",
+      "type": "class",
+      "name": "Application",
+      "filePath": "src/main/java/mq/Application.java",
+      "summary": "Boots the process as broker, producer, or consumer from CLI args.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Application.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/main/java/mq/Application.java",
+      "summary": "Method main in Application.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/Broker.java",
+      "type": "file",
+      "name": "Broker.java",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Central broker accepting registrations and shuttling messages between producers and consumers over TCP.",
+      "tags": [
+        "broker",
+        "tcp",
+        "core",
+        "routing"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/main/java/mq/Broker.java:Broker",
+      "type": "class",
+      "name": "Broker",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Owns topics and dedicated TCP channels for producers/consumers.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:Broker",
+      "type": "function",
+      "name": "Broker",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method Broker in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:startBrokerServer",
+      "type": "function",
+      "name": "startBrokerServer",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method startBrokerServer in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:handleMessageToBroker",
+      "type": "function",
+      "name": "handleMessageToBroker",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method handleMessageToBroker in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:processEcho",
+      "type": "function",
+      "name": "processEcho",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method processEcho in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:handleProducerConsumeMessage",
+      "type": "function",
+      "name": "handleProducerConsumeMessage",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method handleProducerConsumeMessage in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:processProducerRegisterMessage",
+      "type": "function",
+      "name": "processProducerRegisterMessage",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method processProducerRegisterMessage in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:processConsumerRegisterMessage",
+      "type": "function",
+      "name": "processConsumerRegisterMessage",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method processConsumerRegisterMessage in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:startConsumerGroupConsumption",
+      "type": "function",
+      "name": "startConsumerGroupConsumption",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method startConsumerGroupConsumption in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:getOrCreateTopic",
+      "type": "function",
+      "name": "getOrCreateTopic",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method getOrCreateTopic in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:stopAndPop",
+      "type": "function",
+      "name": "stopAndPop",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method stopAndPop in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Broker.java:getOrCreateConsumerGroup",
+      "type": "function",
+      "name": "getOrCreateConsumerGroup",
+      "filePath": "src/main/java/mq/Broker.java",
+      "summary": "Method getOrCreateConsumerGroup in Broker.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/Consumer.java",
+      "type": "file",
+      "name": "Consumer.java",
+      "filePath": "src/main/java/mq/Consumer.java",
+      "summary": "Consumer process that registers with topic/group then receives pushed messages from the broker.",
+      "tags": [
+        "consumer",
+        "tcp",
+        "client"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/main/java/mq/Consumer.java:Consumer",
+      "type": "class",
+      "name": "Consumer",
+      "filePath": "src/main/java/mq/Consumer.java",
+      "summary": "Registers with broker and acks pushed consume messages.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/main/java/mq/Consumer.java:Consumer",
+      "type": "function",
+      "name": "Consumer",
+      "filePath": "src/main/java/mq/Consumer.java",
+      "summary": "Method Consumer in Consumer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Consumer.java:getGroupId",
+      "type": "function",
+      "name": "getGroupId",
+      "filePath": "src/main/java/mq/Consumer.java",
+      "summary": "Method getGroupId in Consumer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Consumer.java:getPort",
+      "type": "function",
+      "name": "getPort",
+      "filePath": "src/main/java/mq/Consumer.java",
+      "summary": "Method getPort in Consumer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Consumer.java:getTopicId",
+      "type": "function",
+      "name": "getTopicId",
+      "filePath": "src/main/java/mq/Consumer.java",
+      "summary": "Method getTopicId in Consumer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Consumer.java:startConsumerServer",
+      "type": "function",
+      "name": "startConsumerServer",
+      "filePath": "src/main/java/mq/Consumer.java",
+      "summary": "Method startConsumerServer in Consumer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Consumer.java:sendRegistrationToBroker",
+      "type": "function",
+      "name": "sendRegistrationToBroker",
+      "filePath": "src/main/java/mq/Consumer.java",
+      "summary": "Method sendRegistrationToBroker in Consumer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/ConsumerGroup.java",
+      "type": "file",
+      "name": "ConsumerGroup.java",
+      "filePath": "src/main/java/mq/ConsumerGroup.java",
+      "summary": "Consumer group state with shared offset and member TCP connections.",
+      "tags": [
+        "consumer-group",
+        "offset",
+        "concurrency"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/ConsumerGroup.java:ConsumerGroup",
+      "type": "class",
+      "name": "ConsumerGroup",
+      "filePath": "src/main/java/mq/ConsumerGroup.java",
+      "summary": "Tracks group offset and member consumer sockets.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/ConsumerGroup.java:ConsumerGroup",
+      "type": "function",
+      "name": "ConsumerGroup",
+      "filePath": "src/main/java/mq/ConsumerGroup.java",
+      "summary": "Method ConsumerGroup in ConsumerGroup.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/ConsumerGroup.java:incOffset",
+      "type": "function",
+      "name": "incOffset",
+      "filePath": "src/main/java/mq/ConsumerGroup.java",
+      "summary": "Method incOffset in ConsumerGroup.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/ConsumerGroup.java:addConsumer",
+      "type": "function",
+      "name": "addConsumer",
+      "filePath": "src/main/java/mq/ConsumerGroup.java",
+      "summary": "Method addConsumer in ConsumerGroup.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/Message.java",
+      "type": "file",
+      "name": "Message.java",
+      "filePath": "src/main/java/mq/Message.java",
+      "summary": "Binary message framing helpers for reading/writing typed payloads on streams.",
+      "tags": [
+        "protocol",
+        "serialization",
+        "framing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/main/java/mq/Message.java:Message",
+      "type": "class",
+      "name": "Message",
+      "filePath": "src/main/java/mq/Message.java",
+      "summary": "Typed binary message with stream read/write helpers.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/main/java/mq/Message.java:parseMessage",
+      "type": "function",
+      "name": "parseMessage",
+      "filePath": "src/main/java/mq/Message.java",
+      "summary": "Method parseMessage in Message.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Message.java:readFromStream",
+      "type": "function",
+      "name": "readFromStream",
+      "filePath": "src/main/java/mq/Message.java",
+      "summary": "Method readFromStream in Message.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Message.java:readMessageFromStream",
+      "type": "function",
+      "name": "readMessageFromStream",
+      "filePath": "src/main/java/mq/Message.java",
+      "summary": "Method readMessageFromStream in Message.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Message.java:writeMessageToStream",
+      "type": "function",
+      "name": "writeMessageToStream",
+      "filePath": "src/main/java/mq/Message.java",
+      "summary": "Method writeMessageToStream in Message.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Message.java:toString",
+      "type": "function",
+      "name": "toString",
+      "filePath": "src/main/java/mq/Message.java",
+      "summary": "Method toString in Message.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/MessageType.java",
+      "type": "file",
+      "name": "MessageType.java",
+      "filePath": "src/main/java/mq/MessageType.java",
+      "summary": "Byte-coded protocol message types for register, push, and response frames.",
+      "tags": [
+        "protocol",
+        "enum"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/MessageType.java:MessageType",
+      "type": "class",
+      "name": "MessageType",
+      "filePath": "src/main/java/mq/MessageType.java",
+      "summary": "Protocol opcode enum mapped to stable byte codes.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/MessageType.java:MessageType",
+      "type": "function",
+      "name": "MessageType",
+      "filePath": "src/main/java/mq/MessageType.java",
+      "summary": "Method MessageType in MessageType.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/MessageType.java:fromByte",
+      "type": "function",
+      "name": "fromByte",
+      "filePath": "src/main/java/mq/MessageType.java",
+      "summary": "Method fromByte in MessageType.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/Producer.java",
+      "type": "file",
+      "name": "Producer.java",
+      "filePath": "src/main/java/mq/Producer.java",
+      "summary": "Producer process that registers with the broker then pushes stdin messages on a dedicated channel.",
+      "tags": [
+        "producer",
+        "tcp",
+        "client"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/main/java/mq/Producer.java:Producer",
+      "type": "class",
+      "name": "Producer",
+      "filePath": "src/main/java/mq/Producer.java",
+      "summary": "Registers with broker and sends producer consume messages from stdin.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Producer.java:sendRegistrationToBroker",
+      "type": "function",
+      "name": "sendRegistrationToBroker",
+      "filePath": "src/main/java/mq/Producer.java",
+      "summary": "Method sendRegistrationToBroker in Producer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Producer.java:startProducerServer",
+      "type": "function",
+      "name": "startProducerServer",
+      "filePath": "src/main/java/mq/Producer.java",
+      "summary": "Method startProducerServer in Producer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/Queue.java",
+      "type": "file",
+      "name": "Queue.java",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Fixed-slot ring buffer storing message bytes for a topic.",
+      "tags": [
+        "queue",
+        "ring-buffer",
+        "storage"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/main/java/mq/Queue.java:Queue",
+      "type": "class",
+      "name": "Queue",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Slot-based ring buffer for topic message payloads.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/main/java/mq/Queue.java:Queue",
+      "type": "function",
+      "name": "Queue",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Method Queue in Queue.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Queue.java:push",
+      "type": "function",
+      "name": "push",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Method push in Queue.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Queue.java:pop",
+      "type": "function",
+      "name": "pop",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Method pop in Queue.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Queue.java:peekAt",
+      "type": "function",
+      "name": "peekAt",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Method peekAt in Queue.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Queue.java:isEmpty",
+      "type": "function",
+      "name": "isEmpty",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Method isEmpty in Queue.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Queue.java:isFull",
+      "type": "function",
+      "name": "isFull",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Method isFull in Queue.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Queue.java:debug",
+      "type": "function",
+      "name": "debug",
+      "filePath": "src/main/java/mq/Queue.java",
+      "summary": "Method debug in Queue.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/TCPClient.java",
+      "type": "file",
+      "name": "TCPClient.java",
+      "filePath": "src/main/java/mq/TCPClient.java",
+      "summary": "Simple TCP client helper for connecting and exchanging bytes.",
+      "tags": [
+        "tcp",
+        "networking",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/TCPClient.java:TCPClient",
+      "type": "class",
+      "name": "TCPClient",
+      "filePath": "src/main/java/mq/TCPClient.java",
+      "summary": "Minimal TCP client utility.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/TCPClient.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/main/java/mq/TCPClient.java",
+      "summary": "Method main in TCPClient.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/TCPServer.java",
+      "type": "file",
+      "name": "TCPServer.java",
+      "filePath": "src/main/java/mq/TCPServer.java",
+      "summary": "Simple TCP server helper for accepting a connection and exchanging bytes.",
+      "tags": [
+        "tcp",
+        "networking",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/TCPServer.java:TCPServer",
+      "type": "class",
+      "name": "TCPServer",
+      "filePath": "src/main/java/mq/TCPServer.java",
+      "summary": "Minimal TCP server utility.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/TCPServer.java:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/main/java/mq/TCPServer.java",
+      "summary": "Method main in TCPServer.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/Topic.java",
+      "type": "file",
+      "name": "Topic.java",
+      "filePath": "src/main/java/mq/Topic.java",
+      "summary": "Topic holding a message queue, consumer groups, and a reentrant lock.",
+      "tags": [
+        "topic",
+        "domain",
+        "concurrency"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/Topic.java:Topic",
+      "type": "class",
+      "name": "Topic",
+      "filePath": "src/main/java/mq/Topic.java",
+      "summary": "Topic aggregate with queue, groups, and lock.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/Topic.java:Topic",
+      "type": "function",
+      "name": "Topic",
+      "filePath": "src/main/java/mq/Topic.java",
+      "summary": "Method Topic in Topic.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/common/Constants.java",
+      "type": "file",
+      "name": "Constants.java",
+      "filePath": "src/main/java/mq/common/Constants.java",
+      "summary": "Shared constants for broker port, max message size, and queue capacity.",
+      "tags": [
+        "constants",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/common/Constants.java:Constants",
+      "type": "class",
+      "name": "Constants",
+      "filePath": "src/main/java/mq/common/Constants.java",
+      "summary": "Ports and queue sizing constants.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/common/CreateResult.java",
+      "type": "file",
+      "name": "CreateResult.java",
+      "filePath": "src/main/java/mq/common/CreateResult.java",
+      "summary": "Result enum/values used when creating topics or groups.",
+      "tags": [
+        "domain",
+        "result"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/common/CreateResult.java:CreateResult",
+      "type": "class",
+      "name": "CreateResult",
+      "filePath": "src/main/java/mq/common/CreateResult.java",
+      "summary": "Creation outcome values.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "type": "file",
+      "name": "ConsumerRegisterRequest.java",
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "summary": "Binary codec for consumer registration (port, topicId, groupId).",
+      "tags": [
+        "protocol",
+        "dto",
+        "consumer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "class",
+      "name": "ConsumerRegisterRequest",
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "summary": "Consumer registration request payload.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "function",
+      "name": "ConsumerRegisterRequest",
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "summary": "Method ConsumerRegisterRequest in ConsumerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:toByte",
+      "type": "function",
+      "name": "toByte",
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "summary": "Method toByte in ConsumerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:fromByte",
+      "type": "function",
+      "name": "fromByte",
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "summary": "Method fromByte in ConsumerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:getPort",
+      "type": "function",
+      "name": "getPort",
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "summary": "Method getPort in ConsumerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:getTopicId",
+      "type": "function",
+      "name": "getTopicId",
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "summary": "Method getTopicId in ConsumerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:getConsumerGroupId",
+      "type": "function",
+      "name": "getConsumerGroupId",
+      "filePath": "src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "summary": "Method getConsumerGroupId in ConsumerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "type": "file",
+      "name": "ProducerRegisterRequest.java",
+      "filePath": "src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "summary": "Binary codec for producer registration (port, topicId).",
+      "tags": [
+        "protocol",
+        "dto",
+        "producer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "class",
+      "name": "ProducerRegisterRequest",
+      "filePath": "src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "summary": "Producer registration request payload.",
+      "tags": [
+        "class",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "function",
+      "name": "ProducerRegisterRequest",
+      "filePath": "src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "summary": "Method ProducerRegisterRequest in ProducerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:toByte",
+      "type": "function",
+      "name": "toByte",
+      "filePath": "src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "summary": "Method toByte in ProducerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:fromByte",
+      "type": "function",
+      "name": "fromByte",
+      "filePath": "src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "summary": "Method fromByte in ProducerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:getPort",
+      "type": "function",
+      "name": "getPort",
+      "filePath": "src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "summary": "Method getPort in ProducerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:getTopicId",
+      "type": "function",
+      "name": "getTopicId",
+      "filePath": "src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "summary": "Method getTopicId in ProducerRegisterRequest.java",
+      "tags": [
+        "method",
+        "java"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:build.gradle",
+      "target": "file:src/main/java/mq/Application.java",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main/java/mq/Application.java",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main/java/mq/Broker.java",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main/java/mq/Producer.java",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/main/java/mq/Consumer.java",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Application.java",
+      "target": "class:src/main/java/mq/Application.java:Application",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Application.java:Application",
+      "target": "function:src/main/java/mq/Application.java:main",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "class:src/main/java/mq/Broker.java:Broker",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:Broker",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:startBrokerServer",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:handleMessageToBroker",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:processEcho",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:handleProducerConsumeMessage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:processProducerRegisterMessage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:processConsumerRegisterMessage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:startConsumerGroupConsumption",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:getOrCreateTopic",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:stopAndPop",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Broker.java:Broker",
+      "target": "function:src/main/java/mq/Broker.java:getOrCreateConsumerGroup",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Consumer.java",
+      "target": "class:src/main/java/mq/Consumer.java:Consumer",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Consumer.java:Consumer",
+      "target": "function:src/main/java/mq/Consumer.java:Consumer",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Consumer.java:Consumer",
+      "target": "function:src/main/java/mq/Consumer.java:getGroupId",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Consumer.java:Consumer",
+      "target": "function:src/main/java/mq/Consumer.java:getPort",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Consumer.java:Consumer",
+      "target": "function:src/main/java/mq/Consumer.java:getTopicId",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Consumer.java:Consumer",
+      "target": "function:src/main/java/mq/Consumer.java:startConsumerServer",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Consumer.java:Consumer",
+      "target": "function:src/main/java/mq/Consumer.java:sendRegistrationToBroker",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/ConsumerGroup.java",
+      "target": "class:src/main/java/mq/ConsumerGroup.java:ConsumerGroup",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/ConsumerGroup.java:ConsumerGroup",
+      "target": "function:src/main/java/mq/ConsumerGroup.java:ConsumerGroup",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/ConsumerGroup.java:ConsumerGroup",
+      "target": "function:src/main/java/mq/ConsumerGroup.java:incOffset",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/ConsumerGroup.java:ConsumerGroup",
+      "target": "function:src/main/java/mq/ConsumerGroup.java:addConsumer",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Message.java",
+      "target": "class:src/main/java/mq/Message.java:Message",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Message.java:Message",
+      "target": "function:src/main/java/mq/Message.java:parseMessage",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Message.java:Message",
+      "target": "function:src/main/java/mq/Message.java:readFromStream",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Message.java:Message",
+      "target": "function:src/main/java/mq/Message.java:readMessageFromStream",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Message.java:Message",
+      "target": "function:src/main/java/mq/Message.java:writeMessageToStream",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Message.java:Message",
+      "target": "function:src/main/java/mq/Message.java:toString",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/MessageType.java",
+      "target": "class:src/main/java/mq/MessageType.java:MessageType",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/MessageType.java:MessageType",
+      "target": "function:src/main/java/mq/MessageType.java:MessageType",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/MessageType.java:MessageType",
+      "target": "function:src/main/java/mq/MessageType.java:fromByte",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Producer.java",
+      "target": "class:src/main/java/mq/Producer.java:Producer",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Producer.java:Producer",
+      "target": "function:src/main/java/mq/Producer.java:sendRegistrationToBroker",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Producer.java:Producer",
+      "target": "function:src/main/java/mq/Producer.java:startProducerServer",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Queue.java",
+      "target": "class:src/main/java/mq/Queue.java:Queue",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Queue.java:Queue",
+      "target": "function:src/main/java/mq/Queue.java:Queue",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Queue.java:Queue",
+      "target": "function:src/main/java/mq/Queue.java:push",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Queue.java:Queue",
+      "target": "function:src/main/java/mq/Queue.java:pop",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Queue.java:Queue",
+      "target": "function:src/main/java/mq/Queue.java:peekAt",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Queue.java:Queue",
+      "target": "function:src/main/java/mq/Queue.java:isEmpty",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Queue.java:Queue",
+      "target": "function:src/main/java/mq/Queue.java:isFull",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Queue.java:Queue",
+      "target": "function:src/main/java/mq/Queue.java:debug",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/TCPClient.java",
+      "target": "class:src/main/java/mq/TCPClient.java:TCPClient",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/TCPClient.java:TCPClient",
+      "target": "function:src/main/java/mq/TCPClient.java:main",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/TCPServer.java",
+      "target": "class:src/main/java/mq/TCPServer.java:TCPServer",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/TCPServer.java:TCPServer",
+      "target": "function:src/main/java/mq/TCPServer.java:main",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Topic.java",
+      "target": "class:src/main/java/mq/Topic.java:Topic",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/Topic.java:Topic",
+      "target": "function:src/main/java/mq/Topic.java:Topic",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/common/Constants.java",
+      "target": "class:src/main/java/mq/common/Constants.java:Constants",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/common/CreateResult.java",
+      "target": "class:src/main/java/mq/common/CreateResult.java:CreateResult",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "target": "class:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:toByte",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:fromByte",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:getPort",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:getTopicId",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ConsumerRegisterRequest.java:ConsumerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ConsumerRegisterRequest.java:getConsumerGroupId",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "target": "class:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:toByte",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:fromByte",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:getPort",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:src/main/java/mq/protocol/ProducerRegisterRequest.java:ProducerRegisterRequest",
+      "target": "function:src/main/java/mq/protocol/ProducerRegisterRequest.java:getTopicId",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/common/Constants.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/common/CreateResult.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Consumer.java",
+      "target": "file:src/main/java/mq/common/Constants.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Consumer.java",
+      "target": "file:src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Producer.java",
+      "target": "file:src/main/java/mq/common/Constants.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Producer.java",
+      "target": "file:src/main/java/mq/protocol/ProducerRegisterRequest.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Queue.java",
+      "target": "file:src/main/java/mq/common/Constants.java",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Application.java",
+      "target": "file:src/main/java/mq/Broker.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Application.java",
+      "target": "file:src/main/java/mq/Producer.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Application.java",
+      "target": "file:src/main/java/mq/Consumer.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/Message.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/Topic.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/Queue.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/ConsumerGroup.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Broker.java",
+      "target": "file:src/main/java/mq/MessageType.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Producer.java",
+      "target": "file:src/main/java/mq/Message.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Producer.java",
+      "target": "file:src/main/java/mq/MessageType.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Consumer.java",
+      "target": "file:src/main/java/mq/Message.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Consumer.java",
+      "target": "file:src/main/java/mq/MessageType.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Message.java",
+      "target": "file:src/main/java/mq/MessageType.java",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Topic.java",
+      "target": "file:src/main/java/mq/Queue.java",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Topic.java",
+      "target": "file:src/main/java/mq/ConsumerGroup.java",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/main/java/mq/Queue.java",
+      "target": "file:src/main/java/mq/common/Constants.java",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:entry-and-docs",
+      "name": "Entry & Documentation",
+      "description": "CLI bootstrap and project runbook that explain how to start broker/producer/consumer modes.",
+      "nodeIds": [
+        "document:README.md",
+        "file:src/main/java/mq/Application.java"
+      ]
+    },
+    {
+      "id": "layer:broker-core",
+      "name": "Broker Core",
+      "description": "Broker process and topic/queue/consumer-group domain that store and route messages.",
+      "nodeIds": [
+        "file:src/main/java/mq/Broker.java",
+        "file:src/main/java/mq/Topic.java",
+        "file:src/main/java/mq/Queue.java",
+        "file:src/main/java/mq/ConsumerGroup.java"
+      ]
+    },
+    {
+      "id": "layer:clients",
+      "name": "Producer & Consumer Clients",
+      "description": "Client processes that register with the broker and exchange messages on dedicated TCP channels.",
+      "nodeIds": [
+        "file:src/main/java/mq/Producer.java",
+        "file:src/main/java/mq/Consumer.java"
+      ]
+    },
+    {
+      "id": "layer:protocol",
+      "name": "Wire Protocol",
+      "description": "Message framing, opcodes, and registration request codecs shared across processes.",
+      "nodeIds": [
+        "file:src/main/java/mq/Message.java",
+        "file:src/main/java/mq/MessageType.java",
+        "file:src/main/java/mq/protocol/ProducerRegisterRequest.java",
+        "file:src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+        "file:src/main/java/mq/common/Constants.java",
+        "file:src/main/java/mq/common/CreateResult.java"
+      ]
+    },
+    {
+      "id": "layer:networking-utils",
+      "name": "Networking Utilities",
+      "description": "Simple TCP client/server helpers used for experimentation and connectivity.",
+      "nodeIds": [
+        "file:src/main/java/mq/TCPClient.java",
+        "file:src/main/java/mq/TCPServer.java"
+      ]
+    },
+    {
+      "id": "layer:build-tooling",
+      "name": "Build & Tooling",
+      "description": "Gradle build configuration and wrapper scripts that compile and launch the application.",
+      "nodeIds": [
+        "config:build.gradle",
+        "config:settings.gradle",
+        "config:gradle.properties",
+        "config:gradle/libs.versions.toml",
+        "file:gradlew",
+        "file:gradlew.bat",
+        "file:.gitattributes"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview",
+      "description": "Start with the README to see how to launch broker, producer, and consumer modes with Gradle.",
+      "nodeIds": [
+        "document:README.md",
+        "config:build.gradle"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Application Entry Point",
+      "description": "Application.main routes CLI args into broker, producer, or consumer startup paths.",
+      "nodeIds": [
+        "file:src/main/java/mq/Application.java"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Broker and Topic Model",
+      "description": "The broker owns topics; each topic has a ring-buffer queue and consumer groups protected by locks.",
+      "nodeIds": [
+        "file:src/main/java/mq/Broker.java",
+        "file:src/main/java/mq/Topic.java",
+        "file:src/main/java/mq/Queue.java",
+        "file:src/main/java/mq/ConsumerGroup.java"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Producer and Consumer Clients",
+      "description": "Clients listen on their own ports, register with the broker, then exchange messages on dedicated TCP connections.",
+      "nodeIds": [
+        "file:src/main/java/mq/Producer.java",
+        "file:src/main/java/mq/Consumer.java"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Wire Protocol",
+      "description": "Messages are length-prefixed frames with typed opcodes; registration requests encode port and topic identifiers.",
+      "nodeIds": [
+        "file:src/main/java/mq/Message.java",
+        "file:src/main/java/mq/MessageType.java",
+        "file:src/main/java/mq/protocol/ProducerRegisterRequest.java",
+        "file:src/main/java/mq/protocol/ConsumerRegisterRequest.java",
+        "file:src/main/java/mq/common/Constants.java"
+      ]
+    }
+  ]
+}
