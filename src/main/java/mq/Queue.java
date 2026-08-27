@@ -58,8 +58,12 @@ public class Queue {
     }
 
     public byte[] peekAt(int offset){
-        if (isEmpty()) {
+        if (isEmpty() || offset < 0) {
             return null; 
+        }
+        int count = ((tail - head + TOTAL_SIZE) % TOTAL_SIZE) / Constants.MAX_MESSAGE_SIZE;
+        if (offset >= count) {
+            return null;
         }
 
         int position = (head + offset * Constants.MAX_MESSAGE_SIZE) % TOTAL_SIZE;

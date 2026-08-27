@@ -28,8 +28,15 @@ public class ConsumerGroup {
     }
     
 
-    public void addConsumer(Socket socket) {
-        consumers.add(new ConsumerConnection(true, socket));
+    public ConsumerConnection addConsumer(Socket socket) {
+        lock.lock();
+        try {
+            ConsumerConnection consumer = new ConsumerConnection(true, socket);
+            consumers.add(consumer);
+            return consumer;
+        } finally {
+            lock.unlock();
+        }
     }
 
     @Getter
