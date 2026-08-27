@@ -22,6 +22,7 @@ public class Broker {
         - The Broker establishes a dedicated connection (listen) to the Producer/Consumer
         - The Producer/Consumer push mesage to Broker
         (with one spawned thread/connection).
+        - Consumer group ~ 1 service (multi-instances) -> SCALABILITY: the more consumer, the more you process
 
         Dedicated channel: 
         - Bottleneck: Establishing a TCP connection for every message is inefficient due to the 
@@ -157,70 +158,61 @@ public class Broker {
         // Check if topic exist, and then create one if not
         Topic topic = getOrCreateTopic(topicId);
 
-        // Check if topic exist, and then create one if not
         CreateResult<ConsumerGroup> result = getOrCreateConsumerGroup(groupId, topicId);
         ConsumerGroup group = result.value();
-        startConsumerGroupConsumption(topic.getTopicId(), group.getGroupId());
         try{
             Socket connection = new Socket("127.0.0.1", conRegPort);
             System.out.println("Connected to Consumer at port " + conRegPort);
-            //Add consumer to consumer group
-            idToTopic.get(topicId).getConsumerGroups().get(groupId).addConsumer(connection);
-
+            ConsumerGroup.ConsumerConnection consumer = group.addConsumer(connection);
+            System.out.printf("Pushed to the list of consumer, port %d%n", conRegPort);
+            new Thread(() -> readConsumerReadyAndSend(topic, group, consumer)).start();
         }catch (Exception e) {
             e.printStackTrace();
         }
         return new byte[]{0};
     }
 
-    public void startConsumerGroupConsumption(int topicId, int groupId){
-        new Thread(() -> {
-            try {
-                while(true){
-                    var cgroup = idToTopic.get(topicId).getConsumerGroups().get(groupId);
-                    var consumers = cgroup.getConsumers();
-                    var topic = idToTopic.get(topicId);
-                    var offset = topic.getConsumerGroups().get(groupId).getOffset();
-                    
-                    
-                    // Get the peek of message queue for consumption 
-                    byte[] consumeMessage = topic.getMessageQueue().peekAt(offset);
-                    if (consumeMessage == null){
-                        continue;
-                    }
-                    
+    private void readConsumerReadyAndSend(Topic topic, ConsumerGroup cgroup,
+            ConsumerGroup.ConsumerConnection consumer) {
+        try {
+            BufferedInputStream bis = new BufferedInputStream(consumer.connection.getInputStream());
+            BufferedOutputStream bos = new BufferedOutputStream(consumer.connection.getOutputStream());
+            while (true) {
+                Message parsedMessage = Message.readMessageFromStream(bis).orElse(null);
+                if (parsedMessage == null) {
+                    break;
+                }
+                if (parsedMessage.getType() != MessageType.R_P_CM) {
+                    System.out.printf("Parsed message not R_P_CM: %s%n", parsedMessage);
+                    break;
+                }
+                consumer.isAvailable = true;
+
+                boolean sent = false;
+                while (!sent) {
                     cgroup.getLock().lock();
-                    for (ConsumerGroup.ConsumerConnection consumer : consumers){
-                        if (consumer.isAvailable) {
-                            BufferedInputStream bis = new BufferedInputStream(consumer.connection.getInputStream());
-                            BufferedOutputStream bos = new BufferedOutputStream(consumer.connection.getOutputStream());
-                            
-                            // Write P_CM message to available consumer
+                    try {
+                        byte[] consumeMessage = topic.getMessageQueue().peekAt(cgroup.getOffset());
+                        if (consumeMessage != null) {
                             consumer.isAvailable = false;
                             Message.writeMessageToStream(bos, new Message(MessageType.P_CM, consumeMessage));
-    
-                            // Read ack
-                            Message parsedMessage = Message.readMessageFromStream(bis).get();
-                            if (parsedMessage == null) {
-                                System.out.println("Parsed message is empty");
-                                break; 
-                            } 
-                            System.out.println(parsedMessage);
-                            if (parsedMessage.getType() == MessageType.R_P_CM){
-                                consumer.isAvailable = true;
-                            }
                             cgroup.incOffset();
+                            sent = true;
                         }
+                    } finally {
                         cgroup.getLock().unlock();
                     }
+                    if (!sent) {
+                        TimeUnit.MILLISECONDS.sleep(50);
+                    }
                 }
-            } catch (Exception e) {
-                System.out.println("Error in producer connection thread");
-                e.printStackTrace();
             }
-        }).start();
+        } catch (Exception e) {
+            System.out.println("Error in consumer connection thread");
+            e.printStackTrace();
+        }
     }
-    
+
     private Topic getOrCreateTopic(int topicId){
         Topic topic = idToTopic.get(topicId);
         if (topic != null){
@@ -236,6 +228,7 @@ public class Broker {
         return createdTopic;
     }
 
+    // Manages which messages are safe to pop + keeps offsets small.
     private void stopAndPop(Topic topic){
         while(true){
             try {

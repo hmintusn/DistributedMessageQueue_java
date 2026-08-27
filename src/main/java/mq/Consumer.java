@@ -52,6 +52,10 @@ public class Consumer {
             System.out.println("Broker connected!");
                 
             while(true){
+                // Write R_P_CM (Ready messsage)
+                var response = new byte[]{1};
+                Message.writeMessageToStream(bos, new Message(MessageType.R_P_CM, response));
+
                 // Read P_CM for consume
                 Optional<Message> message = Message.readMessageFromStream(bis); 
                 if (message.isEmpty()) {
@@ -59,10 +63,7 @@ public class Consumer {
                 }
                 System.out.printf("Receive P_CM from broker: %s%n", message.get());
                 TimeUnit.SECONDS.sleep(5);
-                var response = new byte[]{1};
-
-                // Write R_P_CM
-                Message.writeMessageToStream(bos, new Message(MessageType.R_P_CM, response));
+                // TODO: Do something with the message
             }
         }catch(Exception e){
             e.printStackTrace();

@@ -30,7 +30,7 @@ public class Application {
                 int port = Integer.parseInt(args[1]);
                 int topicId = Integer.parseInt(args[2]);
                 Producer producer = new Producer(port, topicId);
-                producer.startProducerServer(); 
+                producer.startAndSimulateProducerServer(); 
             } catch (NumberFormatException e) {
                 System.out.println("Invalid port: " + args[1]);
             }
