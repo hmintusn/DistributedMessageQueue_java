@@ -22,6 +22,7 @@ public class Broker {
         - The Broker establishes a dedicated connection (listen) to the Producer/Consumer
         - The Producer/Consumer push mesage to Broker
         (with one spawned thread/connection).
+        - Consumer group ~ 1 service (multi-instances) -> SCALABILITY: the more consumer, the more you process
 
         Dedicated channel: 
         - Bottleneck: Establishing a TCP connection for every message is inefficient due to the 
